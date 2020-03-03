@@ -1,0 +1,155 @@
+#footer.f8 {
+    color: $black;
+    text-transform: initial;
+    font-size: 18px;
+    background-position: bottom !important;
+    background-color: $charcoal;
+
+    .footer-logo,
+    .svg-holder svg {
+        display: block;
+        margin: 0 auto;
+
+        @include mq(xl) {
+            margin-right: auto;
+            margin-left: 0;
+        }
+    }
+
+    >.row {
+        padding: 10vw 0 5vw;
+
+        @include mq(md) {
+            padding: 105px 0 45px;
+        }
+    }
+
+    h4 {
+        color: $black;
+        font-size: 2rem;
+        text-transform: initial;
+        margin-bottom: 28px;
+    }
+
+    .block__info {
+        padding: 35px 15px;
+
+        @include mq(xl) {
+            padding: 0 15px;
+        }
+
+        p {
+            padding-left: 28px;
+            position: relative;
+
+            i {
+                position: absolute;
+                top: 5px;
+                left: 0;
+            }
+
+            .fa-long-arrow-right {
+                position: relative;
+                left: auto;
+                top: 2px;
+            }
+        }
+    }
+
+    .block__links {
+        padding: 35px 15px;
+        display: none;
+
+        @include mq(sm) {
+            display: block;
+        }
+
+        @include mq(xl) {
+            padding: 0 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0 0 0 15px;
+            margin: 0;
+        }
+    }
+
+    .copyright {
+        padding: 4vw 0 0;
+        color: $black;
+    }
+
+    .gform_wrapper {
+        form {
+            .gform_body {
+                .gform_fields {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 15px;
+
+                    li:first-child,
+                    li:last-child {
+                        grid-column: span 2;
+                    }
+
+                    li {
+                        width: 100%;
+
+                        input,
+                        textarea {
+                            width: 100%;
+                            border: 2px solid $black;
+                            background: transparent;
+                            color: $black;
+                            padding: 8px 15px;
+                        }
+                    }
+                }
+            }
+
+            .gform_footer {
+                padding: 0;
+
+                input[type=submit] {
+                    background: $primary;
+                    color: $white;
+                    display: flex;
+                    height: 50px;
+                    margin-right: 0;
+                    margin-left: auto;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    border: none;
+                    transition: all .5s;
+                    border: 1px solid $primary;
+
+                    @include mq(md) {
+                        width: 250px;
+                    }
+
+                    &:hover {
+                        background: $white;
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+
+    ::placeholder {
+        color: $black;
+    }
+
+    &.page__contact {
+
+        >.row {
+            padding: 50px 0;
+        }
+
+        .copyright {
+            padding: 0;
+        }
+    }
+}

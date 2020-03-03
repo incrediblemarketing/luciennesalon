@@ -1,0 +1,172 @@
+/* -------------------------------------------------- */
+/* MENU
+/* -------------------------------------------------- */
+
+body {
+
+	#header {
+
+		$self: &;
+
+		.header {
+
+			&-right {
+
+				.menu-container {
+
+					nav {
+
+						border-top: 1px solid $white;
+
+						ul { // MAIN MENU
+
+							li {
+
+								margin: 0;
+
+								a {
+
+									padding: 1rem;
+									color: $white;
+									transition: color 250ms ease-in-out;
+
+									span {}
+
+									i {
+										position: static;
+										margin: {
+											top: 0;
+											left: 0.5rem;
+										}
+									}
+
+									&:hover {
+										color: $gray;
+									}
+
+								}
+
+								> ul { // SUB-MENU
+
+									@include box-shadow-strong;
+									overflow: hidden;
+									border-radius: 5px;
+									background: $white;
+
+									li {
+
+										a {
+
+											color: $primary;
+
+											span {}
+
+											i {}
+
+											&:hover {
+												color: $white;
+											}
+
+										}
+
+									}
+
+								}
+
+							}
+
+						}
+
+					}
+
+				}
+
+			}
+
+
+		}
+		
+	}
+
+}
+
+
+// MODIFIERS
+body.scrolling {
+
+	#header {
+
+		$self: &;
+
+		.header {
+
+			&-right {
+
+				.menu-container {
+
+					nav {
+
+						border-top: none;
+
+						ul { // MAIN MENU
+
+							li {
+
+								margin: 0;
+
+								a {
+
+									padding: 1rem;
+									color: $primary;
+									transition: color 250ms ease-in-out;
+
+									span {}
+
+									i {}
+
+									&:hover {
+										//color: $gray;
+									}
+
+								}
+
+								> ul { // SUB-MENU
+
+									background: $charcoal;
+
+									li {
+
+										a {
+
+											color: $white;
+
+											span {}
+
+											i {}
+
+											&:hover {
+												color: $white;
+											}
+
+										}
+
+									}
+
+								}
+
+							}
+
+						}
+
+					}
+
+				}
+
+			}
+
+
+		}
+		
+	}
+
+}

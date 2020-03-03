@@ -1,0 +1,32 @@
+/* -------------------------------------------------- */
+/* SOCIAL ICONS
+/* -------------------------------------------------- */
+
+.social-icons {
+
+	li {
+
+		margin: 0 0.5rem;
+		font-size: 0.75em;
+
+		a {
+
+			color: $white;
+			font-size: 14px;
+			border-radius: 100px;
+			border: 1px solid $white;
+			background: rgba($white, 0);
+			transition:	color 250ms ease-in-out,
+						border 250ms ease-in-out,
+						background 250ms ease-in-out;
+
+			&:hover {
+				color: $primary;
+				background: rgba($white, 1);
+			}
+
+		}
+
+	}
+
+}

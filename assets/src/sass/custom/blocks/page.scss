@@ -1,0 +1,126 @@
+/* -------------------------------------------------- */
+/* PAGE
+/* -------------------------------------------------- */
+
+#page-header {
+
+	&::before {
+		background-color: rgba($secondary, 0.9);
+	}
+
+}
+
+.img {
+
+	img {
+		//border-radius: 5px !important;
+		border: 1px solid $gray;
+	}
+
+}
+
+.page {
+
+	$self: &;
+
+	&-content {
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: stretch;
+		justify-content: center;
+		padding: 0;
+
+		.img, .text-block {
+
+		}
+
+
+
+		h1 {
+			width: 100%;
+		}
+
+		.img {
+
+			img {
+				border-radius: 5px;
+			}
+
+		}
+
+		.text-block {
+			width: 100% !important;
+			max-width: 100% !important;
+		}
+
+	}
+
+}
+
+.block {
+
+	&__page {
+
+		.content {
+
+			@include gutter;
+
+			h1 {
+
+			}
+
+			h2, h3, h4, h5, h6 {
+				margin: {
+					top: 4rem;
+					bottom: 1rem;
+				};
+				color: $primary;
+			}
+
+			p {
+				margin-bottom: 1rem;
+			}
+
+			.img {
+
+				overflow: hidden;
+				box-shadow: none !important;
+
+				@include break($min: 0, $max: $mobile, $orientation: 'both') {
+					width: 100%;
+				}
+
+				img {
+
+					@include break($min: 0, $max: $mobile, $orientation: 'both') {
+						margin: {
+							left: 0;
+							right: auto;
+						}
+						width: 250px;
+						height: 250px;
+						border-radius: 250px;
+						border: 1px solid $gray;
+						object-fit: cover;
+						object-position: top center;
+					}
+
+				}
+
+			}
+
+			&.no-image {
+
+				img {
+					display: none;
+				}
+
+			}
+
+		}
+
+	}
+
+}

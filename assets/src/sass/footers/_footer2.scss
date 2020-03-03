@@ -1,0 +1,43 @@
+#footer.f2 {
+    .contact .col {
+        border-right: 0;
+    }
+
+    .copyright {
+        width: 100%;
+        color: $white;
+    }
+
+    .social-icons {
+        width: 100%;
+        text-align: right;
+    }
+
+    >.row {
+        padding: 8vh 0 0;
+    }
+
+    .gform_wrapper {
+        margin: 0;
+
+        .gfield {
+
+            input,
+            textarea {
+                margin-bottom: 1.5rem;
+                background: rgba(255, 255, 255, .8);
+                border: none;
+                padding: 8px 15px !important;
+                color: #000;
+            }
+        }
+    }
+
+    .social-icons {
+        text-align: center;
+
+        @include mq(lg) {
+            text-align: left;
+        }
+    }
+}

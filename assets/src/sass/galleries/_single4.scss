@@ -1,0 +1,47 @@
+.gallery.g4 {
+    .single-gallery {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .ba-link {
+            text-align: center;
+
+            img {
+                margin: 0 auto;
+            }
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: $black;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            font-size: 40px;
+            transform: translateY(-50%);
+            transition: all 300ms linear;
+            -webkit-transition: all 300ms linear;
+        }
+
+        .swiper-button-next {
+            right: 0;
+        }
+
+        .swiper-button-prev {
+            left: 0;
+        }
+
+        &:hover {
+            @include mq(lg) {
+                .swiper-button-next {
+                    right: 20px;
+                }
+
+                .swiper-button-prev {
+                    left: 20px;
+                }
+            }
+        }
+    }
+}

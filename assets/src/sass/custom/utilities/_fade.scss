@@ -1,0 +1,113 @@
+/* -------------------------------------------------- */
+/* FADE
+/* -------------------------------------------------- */
+
+// VARIABLES
+$directions: (
+	top: 'top',
+	right: 'right',
+	bottom: 'bottom',
+	left: 'left',
+);
+
+
+// MAIN
+.fade {
+
+	@each $name-color, $color in $colors {
+
+		@each $name-direction, $direction in $directions {
+
+			&-#{$name-color}-#{$name-direction} {
+
+				@include breakpoint($prefix: '-', $suffix: '') {
+
+					@include fade(
+						$type: $direction,
+						$color: $color,
+						$alpha: 1,
+						$scale: 40%,
+						$start: 0%,
+						$stop: 100%,
+						$order: 1,
+						$prefix: '',
+						$suffix: '::before',
+						$fixed: false,
+						$clickable: false
+					);
+
+				}
+
+			}
+
+			&-#{$name-color}-tb {
+
+				@include breakpoint($prefix: '-', $suffix: '') {
+
+					@include fade(
+						$type: 'tb',
+						$color: $color,
+						$alpha: 1,
+						$scale: 100%,
+						$start: 0%,
+						$stop: 100%,
+						$order: 1,
+						$prefix: '',
+						$suffix: '::before',
+						$fixed: false,
+						$clickable: false
+					);
+
+				}
+
+			}
+
+			&-#{$name-color}-lr {
+
+				@include breakpoint($prefix: '-', $suffix: '') {
+
+					@include fade(
+						$type: 'lr',
+						$color: $color,
+						$alpha: 1,
+						$scale: 100%,
+						$start: 0%,
+						$stop: 100%,
+						$order: 1,
+						$prefix: '',
+						$suffix: '::before',
+						$fixed: false,
+						$clickable: false
+					);
+
+				}
+
+			}
+
+			&-#{$name-color}-full {
+
+				@include breakpoint($prefix: '-', $suffix: '') {
+
+					@include fade(
+						$type: 'full',
+						$color: $color,
+						$alpha: 1,
+						$scale: 100%,
+						$start: 30%,
+						$stop: 75%,
+						$order: 1,
+						$prefix: '',
+						$suffix: '::before',
+						$fixed: false,
+						$clickable: false
+					);
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

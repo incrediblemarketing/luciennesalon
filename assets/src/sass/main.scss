@@ -1,0 +1,190 @@
+// ==========================================================================
+// Bootstrap
+// ==========================================================================
+
+@import 'vendor/bootstrap/bootstrap-variables', 'vendor/bootstrap/bootstrap';
+
+// ==========================================================================
+// Core
+// ==========================================================================
+
+@import 'core/mq-breakpoints', 'core/functions', 'core/mixins';
+
+
+
+
+
+/* -------------------------------------------------- */
+/* FRAMEWORK
+/* -------------------------------------------------- */
+
+// FOUNDATION
+/*
+@import	'_framework/foundation/settings',
+		'../../node_modules/foundation-sites/scss/foundation',
+		'_framework/foundation/mixins';
+*/
+
+
+// BOOTSTRAP
+//@import	'_framework/bootstrap/settings',
+//			'../../node_modules/bootstrap/scss/bootstrap';
+
+
+/* -------------------------------------------------- */
+/* CONFIGURATION
+/* -------------------------------------------------- */
+
+@import 'custom/config';
+
+
+/* -------------------------------------------------- */
+/* PLUGINS
+/* -------------------------------------------------- */
+
+@import	'custom/_plugins/fontawesome/fontawesome',
+		'custom/_plugins/fontawesome/brands',
+		'custom/_plugins/fontawesome/light',
+		'custom/_plugins/fontawesome/regular',
+		'custom/_plugins/fontawesome/solid';
+
+
+/* -------------------------------------------------- */
+/* CORE
+/* -------------------------------------------------- */
+
+@import	'custom/_core/functions',
+		'custom/_core/variables',
+		'custom/_core/mixins',
+		'custom/_core/shortcuts',
+		'custom/_core/helpers';
+
+
+/* -------------------------------------------------- */
+/* CRITICAL
+/* -------------------------------------------------- */
+
+@import 'custom/body';
+
+
+
+
+
+// ==========================================================================
+// Dependencies
+// ==========================================================================
+
+@import '../../../node_modules/sass-mq/mq';
+
+// ==========================================================================
+// Base
+// ==========================================================================
+
+@import 'base/variables', 'base/typography', 'base/colors', 'base/helpers', 'base/base', 'base/buttons', 'base/padding', 'base/headings';
+
+// ==========================================================================
+// Plugins
+// ==========================================================================
+
+@import 'plugins/gravityforms', 'plugins/magnific-popup';
+
+// ==========================================================================
+// Components
+// ==========================================================================
+
+@import 'components/blocks', 'components/social-icons', 'components/site-nav', 'components/page-header', 'components/hero', 'components/single-page', 'components/sidebar', 'components/testimonials', 'components/taptap';
+
+// ==========================================================================
+// Headers
+// ==========================================================================
+
+@import 'headers/header', 'headers/header3';
+
+// ==========================================================================
+// Procedures
+// ==========================================================================
+
+@import 'procedures/procedure-grid';
+
+// ==========================================================================
+// Gallery
+// ==========================================================================
+
+@import 'galleries/gallery', 'galleries/archive2', 'galleries/single4';
+
+// ==========================================================================
+// Footers
+// ==========================================================================
+
+@import 'footers/footer', 'footers/footer7';
+
+
+
+
+
+/* -------------------------------------------------- */
+/* COMPONENTS
+/* -------------------------------------------------- */
+
+@import 'custom/components/**/*.scss';
+
+
+/* -------------------------------------------------- */
+/* BLOCKS
+/* -------------------------------------------------- */
+
+@import 'custom/blocks/**/*.scss';
+
+
+/* -------------------------------------------------- */
+/* MODULES
+/* -------------------------------------------------- */
+
+@import '../modules/**/*.scss';
+
+
+/* -------------------------------------------------- */
+/* THEME
+/* -------------------------------------------------- */
+
+//@import 'custom/theme';
+
+
+/* -------------------------------------------------- */
+/* LAYOUT
+/* -------------------------------------------------- */
+
+@import 'custom/layouts/**/*.scss';
+
+
+/* -------------------------------------------------- */
+/* TYPOGRAPHY
+/* -------------------------------------------------- */
+
+@import 'custom/typography/blockquote.scss',
+		'custom/typography/copy.scss',
+		//'custom/typography/headline.scss',
+		'custom/typography/tags.scss';
+
+
+/* -------------------------------------------------- */
+/* ELEMENTS
+/* -------------------------------------------------- */
+
+//@import 'custom/elements/**/*.scss';
+
+
+/* -------------------------------------------------- */
+/* UTILITIES
+/* -------------------------------------------------- */
+
+@import //'custom/utilities/fade.scss',
+		//'custom/utilities/filter.scss',
+		'custom/utilities/gutter.scss',
+		//'custom/utilities/list.scss',
+		//'custom/utilities/media.scss',
+		'custom/utilities/rules.scss',
+		'custom/utilities/sizes.scss',
+		'custom/utilities/typography.scss';
+
+

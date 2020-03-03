@@ -1,0 +1,159 @@
+/* -------------------------------------------------- */
+/* LAYOUT
+/* -------------------------------------------------- */
+
+/* Wildcard reference
+[class^='my-'] // Match any 'class' that begins with.
+[class*=' my-class'] // Match the substring 'class' occurring directly after a space character.
+[class$='-class'] // Match any 'class' that ends with.
+*/
+
+
+// STACK ORDER (Z-INDEX)
+@each $name, $order in $stack-order {
+
+	&#{$name} {
+		z-index: $order;
+	}
+
+}
+
+
+// MAIN
+main {
+
+	overflow: hidden;
+	position: relative;
+	margin: {
+		top: map-get(map-get($main, margin), top);
+		right: map-get(map-get($main, margin), right);
+		bottom: map-get(map-get($main, margin), bottom);
+		left: map-get(map-get($main, margin), left);
+	}
+	padding: {
+		top: map-get(map-get($main, padding), top);
+		right: map-get(map-get($main, padding), right);
+		bottom: map-get(map-get($main, padding), bottom);
+		left: map-get(map-get($main, padding), left);
+	}
+	width: 100%;
+	//height: 100%;
+	max-width: map-get($main, width);
+
+	section {
+		
+		position: relative;
+		margin: {
+			top: map-get(map-get($section, margin), top);
+			//right: map-get(map-get($section, margin), right);
+			bottom: map-get(map-get($section, margin), bottom);
+			//left: map-get(map-get($section, margin), left);
+		}
+		padding: {
+			top: map-get(map-get($section, padding), top);
+			//right: map-get(map-get($section, padding), right);
+			bottom: map-get(map-get($section, padding), bottom);
+			//left: map-get(map-get($section, padding), left);
+		}
+		width: auto;
+		height: auto;
+		//background: $section-background;
+
+		&:not(.no-width) {
+			max-width: map-get($section, width);
+		}
+
+		&:not(.no-gutter) {
+
+			margin: {
+				//top: map-get(map-get($section, margin), top);
+				right: map-get(map-get($section, margin), right);
+				//bottom: map-get(map-get($section, margin), bottom);
+				left: map-get(map-get($section, margin), left);
+			}
+			padding: {
+				//top: map-get(map-get($section, padding), top);
+				right: map-get(map-get($section, padding), right);
+				//bottom: map-get(map-get($section, padding), bottom);
+				left: map-get(map-get($section, padding), left);
+			}
+	
+			@include break($min: 0, $max: $mobile, $orientation: '') {
+
+				margin: {
+					//top: map-get(map-get($section, margin), top-mobile);
+					right: map-get(map-get($section, margin), right-mobile);
+					//bottom: map-get(map-get($section, margin), bottom-mobile);
+					left: map-get(map-get($section, margin), left-mobile);
+				}
+				padding: {
+					//top: map-get(map-get($section, padding), top-mobile);
+					right: map-get(map-get($section, padding), right-mobile);
+					//bottom: map-get(map-get($section, padding), bottom-mobile);
+					left: map-get(map-get($section, padding), left-mobile);
+				}
+
+			}
+
+		}
+
+		@include break($min: $mobile, $max: $tablet, $orientation: 'portrait') {
+
+			margin: {
+				top: map-get(map-get($section, margin), top-mobile);
+				//right: map-get(map-get($section, margin), right-mobile);
+				bottom: map-get(map-get($section, margin), bottom-mobile);
+				//left: map-get(map-get($section, margin), left-mobile);
+			}
+			padding: {
+				top: map-get(map-get($section, padding), top-mobile);
+				//right: map-get(map-get($section, padding), right-mobile);
+				bottom: map-get(map-get($section, padding), bottom-mobile);
+				//left: map-get(map-get($section, padding), left-mobile);
+			}
+
+		}
+
+		@include break($min: 0, $max: $mobile, $orientation: 'both') {
+
+			margin: {
+				top: map-get(map-get($section, margin), top-mobile);
+				//right: map-get(map-get($section, margin), right-mobile);
+				bottom: map-get(map-get($section, margin), bottom-mobile);
+				//left: map-get(map-get($section, margin), left-mobile);
+			}
+			padding: {
+				top: map-get(map-get($section, padding), top-mobile);
+				//right: map-get(map-get($section, padding), right-mobile);
+				bottom: map-get(map-get($section, padding), bottom-mobile);
+				//left: map-get(map-get($section, padding), left-mobile);
+			}
+
+		}
+
+		@include break($min: 0, $max: $laptop, $orientation: 'both') {
+			max-width: 100%;
+		}
+		
+	}
+
+	@include break($min: 0, $max: $laptop, $orientation: 'both') {
+		max-width: 100%;
+	}
+
+	@include break($min: 0, $max: $mobile, $orientation: 'both') {
+		margin: {
+			top: map-get(map-get($main, margin), top-mobile);
+			right: map-get(map-get($main, margin), right-mobile);
+			bottom: map-get(map-get($main, margin), bottom-mobile);
+			left: map-get(map-get($main, margin), left-mobile);
+		}
+		padding: {
+			top: map-get(map-get($main, padding), top-mobile);
+			right: map-get(map-get($main, padding), right-mobile);
+			bottom: map-get(map-get($main, padding), bottom-mobile);
+			left: map-get(map-get($main, padding), left-mobile);
+		}
+	}
+
+}

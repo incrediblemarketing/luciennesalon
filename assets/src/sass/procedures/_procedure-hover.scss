@@ -1,0 +1,151 @@
+.procedures-half {
+    .info {
+        width: 100%;
+        height: auto;
+        display: block;
+        padding: 15px;
+        text-align: center;
+        color: $white;
+
+        @include mq(md) {
+            width: 420px;
+            padding: 0 5vw;
+            display: table;
+            text-align: left;
+            height: 500px;
+        }
+
+        .inner {
+            display: block;
+
+            @include mq(md) {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+
+        h3 {
+            margin: 0;
+
+            &.border {
+                color: $white;
+
+                &::after {
+                    display: none;
+                    background: $white;
+
+                    @include mq(md) {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    .procedures-half-rotator {
+        width: 100%;
+        height: 100%;
+
+        @include mq(md) {
+            width: calc(100% - 420px);
+        }
+
+        .swiper-slide {
+            padding: 30px;
+            width: 320px;
+            min-width: 200px;
+
+            img {
+                transform: scale(1);
+                width: 100%;
+                height: auto;
+                transition: 0.4s;
+            }
+
+            h3 {
+                position: absolute;
+                top: 48%;
+                margin: 0;
+                text-align: center;
+                display: block;
+                width: calc(100% - 60px);
+                text-transform: uppercase;
+                font-size: 20px;
+                padding: 0;
+                color: $white;
+                transition: 0.4s ease-in-out;
+            }
+
+            .btn {
+                width: 300px;
+                max-width: 85%;
+                position: absolute;
+                top: 62%;
+                left: 50%;
+                transform: translate(-50%, 0);
+                opacity: 0;
+                transition: 0.4s ease-in-out;
+
+                @include mq(md) {
+                    width: unset;
+                    max-width: unset;
+                }
+            }
+
+            .small-desc {
+                color: $white;
+                width: 100%;
+                margin: 0 auto;
+                font-size: 15px;
+                text-align: center;
+                position: relative;
+                opacity: 0;
+                transition: 0.4s ease-in-out;
+                top: 14%;
+                line-height: 1.3em;
+
+                @include mq(lg) {
+                    line-height: 1.5em;
+                    top: 20%;
+                }
+            }
+
+            &::before {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4);
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+
+            &:hover {
+                h3 {
+                    top: 15px;
+                }
+
+                img {
+                    transform: scale(1.2);
+                }
+
+                .btn {
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                    top: auto;
+                    bottom: 15px;
+                }
+
+                .small-desc {
+                    opacity: 1;
+                }
+
+                &::before {
+                    background: rgba(0, 0, 0, 0.8);
+                }
+            }
+        }
+    }
+}

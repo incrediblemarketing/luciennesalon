@@ -1,0 +1,184 @@
+/* -------------------------------------------------- */
+/* ORDER OR PROPERTIES
+/* -------------------------------------------------- */
+
+.properties[class*='my-class']:not(.class) {
+
+	content: '';
+
+	cursor: pointer;
+	pointer-events: auto;
+	touch-action: auto;
+	user-select: none;
+
+	z-index: 1;
+	float: left;
+	object: {
+		fit: cover;
+		position: center center;
+	}
+	filter: blur(0);
+	opacity: 1;
+	mix-blend-mode: normal;
+	overflow: {
+		x: hidden;
+		y: scroll;
+	};
+	visibility: visible;
+
+	display: flex;
+	flex: 0 1 33.333%; // flex-grow, flex-shrink, flex-basis
+	flex-flow: row wrap; // flex-direction, flex-wrap
+	align-items: center;
+	justify-content: space-between;
+
+	position: relative;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+
+	margin: {
+		top: 0rem;
+		right: auto;
+		bottom: 0rem;
+		left: auto;
+	};
+	padding: {
+		top: 0rem;
+		right: auto;
+		bottom: 0rem;
+		left: auto;
+	};
+
+	width: 100%;
+	height: 100%;
+	min: {
+		width: 100%;
+		height: 100vh;
+	}
+	max: {
+		width: 100%;
+		height: 100vh;
+	}
+
+	color: map-get(map-get($fonts, copy), color);
+	font: {
+		family: map-get(map-get($fonts, copy), family);
+		size: map-get(map-get($fonts, copy), size);
+		style: map-get(map-get($fonts, copy), style);
+		variant: map-get(map-get($fonts, copy), variant);
+		weight: map-get(map-get($fonts, copy), weight);
+	}
+	letter-spacing: map-get(map-get($fonts, copy), letter-spacing);
+	line-height: map-get(map-get($fonts, copy), line-height);
+	text: {
+		align: left;
+		decoration: none;
+		direction: rtl;
+		indent: 0em;
+		overflow: ellipsis;
+		shadow: $text-shadow-light;
+		transform: none;
+	}
+	vertical-align: baseline;
+	white-space: nowrap;
+	word: {
+		break: normal;
+		spacing: 0.25em;
+		//wrap: normal;
+	};
+
+	border: {
+		top: $thin solid $secondary;
+		right: $thin solid $secondary;
+		bottom: $thin solid $secondary;
+		left: $thin solid $secondary;
+
+		image-source: url(../assets/border.png);
+		image-slice: 20%;
+		image-width: 1;
+		image-outset: 0;
+		image-repeat: round;
+
+		radius: $radius;
+	}
+
+	background: {
+		attachment: scroll;
+		color: $light-gray;
+		image: (linear-gradient(to top, rgba($primary, 0.9) 0%, rgba($secondary, 1) 100%), url(../assets/patterns/hex-secondary.webp), url(../assets/patterns/hex-secondary.png));
+		clip: border-box;
+		origin: border-box;
+		position: center center;
+		size: cover;
+		repeat: repeat;
+	};
+
+	box-shadow: $box-shadow-light;
+
+	transform:	translate3d(0, 0, 0)
+				scale3d(1, 1, 1)
+				rotate(45deg)
+				//rotate3d(1, 1, 0, 45deg)
+				skew(30deg, 20deg);
+	transform: {
+		origin: center center;
+		style: preserve-3d;
+	}
+	perspective: 1000px;
+	perspective-origin: center center;
+
+	animation: {
+		name: my-animation;
+		duration: 400ms * $timescale;
+		direction: normal;
+		delay: 0ms;
+		iteration-count: infinite;
+		timing-function: $easeNatural;
+		fill-mode: both;
+	}
+
+	transition: {
+		property: width, height;
+		duration: 400ms * $timescale;
+		delay: 0ms;
+		timing-function: $easeNatural;
+	};
+
+	will-change: auto;
+
+	&::before, &::after {
+		content: '';
+	}
+
+	&::last-child {
+
+	}
+
+	.child {
+		transform:	translateZ(20px)
+					rotate3d(1, 1, 0, 45deg);	
+	}
+
+	/*
+	-ms-overflow-style: none;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	&::selection {
+		color: map-get(map-get($document, selection), text-color);
+		background: map-get(map-get($document, selection), background-color);
+	}
+	*/
+
+	@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+		backdrop-filter: blur(48px);
+	}
+
+	@include break($min: 0, $max: $mobile, $orientation: 'mobile') {
+		//display: none;
+	}
+
+}

@@ -1,0 +1,139 @@
+.gallery-archive.a2 {
+    .inner-container {
+        border: 1px solid $dark-gray;
+        padding: 15px 30px;
+    }
+
+    .item {
+        position: relative;
+        height: 100%;
+        background: #000;
+        width: 100% !important;
+        overflow: hidden;
+
+        a {
+            position: relative;
+            z-index: 0;
+            display: block;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: rgba($black, 0.35);
+                z-index: 1;
+            }
+        }
+
+        img {
+            min-width: 100%;
+            min-height: 100%;
+            height: auto;
+            width: auto;
+            z-index: -2;
+            transform: scale(1);
+            filter: grayscale(100%);
+            transition: all 300ms linear;
+        }
+
+        h3 {
+            position: absolute;
+            top: 50%;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            z-index: 3;
+            color: $white;
+            transition: all 300ms linear;
+            transition-delay: 200ms;
+        }
+
+        .child-pages {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            z-index: 3;
+            transition: all 300ms linear;
+            transition-delay: 200ms;
+
+            a {
+                display: block;
+                color: $white;
+                font-weight: 300;
+                text-transform: uppercase;
+                font-size: 18px;
+                margin-bottom: 10px;
+                position: relative;
+
+                &:hover {
+                    color: $primary;
+                }
+
+                &::after {
+                    content: '';
+                    height: 110%;
+                    width: 110%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    background: rgba(0, 0, 0, 0.3);
+                    z-index: 1;
+                    transition: all 300ms linear;
+                    -webkit-transition: all 300ms linear;
+                }
+            }
+        }
+
+        &:hover {
+            img {
+                filter: grayscale(0);
+                transform: scale(1.05);
+            }
+
+            h3 {
+                color: $white;
+            }
+
+            &::after {
+                background: rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+
+    .fancy {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        text-align: left;
+        font-size: 1.8rem;
+
+        @include mq(lg) {
+            font-size: 2.5rem;
+        }
+
+        &::after {
+            background-color: $primary;
+            content: '\a0';
+            flex-grow: 1;
+            height: 1px;
+            position: relative;
+            top: 0.5em;
+        }
+
+        span {
+            padding-right: 15px;
+        }
+    }
+}

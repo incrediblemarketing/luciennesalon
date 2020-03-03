@@ -1,0 +1,957 @@
+/* -------------------------------------------------- */
+/* REFERENCE GUIDE
+/* -------------------------------------------------- */
+
+// BREAKPOINTS
+//@include breakpoint($prefix: '-', $suffix: '');
+//@include break($min: 0, $max: 320px, $orientation: '');
+
+
+// ASPECT RATIO
+//@include aspect-ratio(16, 9);
+
+
+//COLORS
+//@include color($type: 'hex', $property: 'color', $prefix: '-', $suffix: '--', $alpha: 1);
+//@include color($type: 'gradient', $property: 'background-color', $prefix: '-', $suffix: '', $alpha: 1);
+//@include color($type: 'rgba', $property: 'border-color', $prefix: '-', $suffix: '--', $alpha: 1);
+//@include color($type: 'svg-gradient', $property: 'color', $prefix: '-', $suffix: '-gradient path', $alpha: 1);
+
+
+// TYPOGRAPHY
+/*
+@include fluid-type(
+	$min-size: 16px,
+	$max-size: 48px,
+	$min-range: 320px,
+	$max-range: 1920px
+);
+*/
+//@include headlines();
+//@include icon($type: 'brand', $icon: 'f16d');
+//@include icon($type: 'light', $icon: 'f67c');
+//@include icon($type: 'regular', $icon: 'f67c');
+//@include icon($type: 'solid', $icon: 'f67c');
+//@include truncate($width: 250px);
+
+
+// GUTTERS (MARGINS / PADDING)
+//@include gutter();
+
+
+// EFFECTS
+/*
+@include fade(
+	$type: 'left',
+	$color: #fff,
+	$alpha: 1,
+	$scale: 100%,
+	$start: 0,
+	$stop: 100%,
+	$order: 0,
+	$prefix: '-',
+	$suffix: '',
+	$fixed: false,
+	$clickable: false
+);
+
+@include shadow(
+	$type: 'drop-shadow',
+	$color: #111546,
+	$x: 0,
+	$y: $amount,
+	$blur: $amount,
+	$alpha: 0.2,
+	$inset: false
+);
+
+@include shadow(
+	$type: 'box-shadow',
+	$color: #111546, $x: 0,
+	$y: $amount,
+	$blur: $amount,
+	$spread: 0,
+	$alpha: 0.2,
+	$strength: 0.5,
+	$inset: false
+);
+
+@include shadow(
+	$type: 'text-shadow',
+	$color: #111546,
+	$x: $amount,
+	$y: $amount,
+	$blur: 1px,
+	$alpha: 0.25,
+	$strength: 1
+);
+*/
+
+
+// ANIMATIONS
+/*
+@include animate(
+	$name: 'my-animation',
+	$play: true,
+	$direction: 'normal',
+	$mode: none,
+	$duration: 400ms,
+	$delay: 0,
+	$repeat: 1,
+	$ease: 'ease-out',
+	$optimize: false
+);
+*/
+
+
+// TRANSITION
+/*
+@include transition(
+	$property: (color),
+	$duration: 400ms,
+	$delay: 0,
+	$ease: 'ease-out',
+	$optimize: true
+);
+*/
+
+
+/* -------------------------------------------------- */
+/* BREAKPOINTS
+/* -------------------------------------------------- */
+
+// MIXIN
+@mixin breakpoint($prefix: '-', $suffix: '') { // Generates xs, sm, md, lg and xl (with portrait and landscape) versions of the original class based on user-defined breakpoints.
+
+	@if $generateClassSpecificBreakpoints == false {
+
+		// ORIGINAL
+		&#{$suffix} {
+			@content;
+		}
+
+	} @else {
+
+		// ORIGINAL
+		&#{$suffix} {
+			@content;
+		}
+
+
+		// MOBILE
+		@media screen and (min-width: 0) and (max-width: map-get($breakpoints, mobile)) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{$suffix} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: 0) and (max-width: map-get($breakpoints, mobile)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-portrait'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: 0) and (max-height: map-get($breakpoints, mobile)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-landscape'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: 0) and (max-width: map-get($breakpoints, mobile)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: 0) and (max-height: map-get($breakpoints, mobile)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+
+		// TABLET
+		@media screen and (min-width: map-get($breakpoints, mobile) + 1) and (max-width: map-get($breakpoints, tablet)) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 2)}#{$suffix} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: map-get($breakpoints, mobile) + 1) and (max-width: map-get($breakpoints, tablet)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 2)}#{'-portrait'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: map-get($breakpoints, mobile) + 1) and (max-height: map-get($breakpoints, tablet)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 2)}#{'-landscape'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: map-get($breakpoints, mobile) + 1) and (max-width: map-get($breakpoints, tablet)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 2)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: map-get($breakpoints, mobile) + 1) and (max-height: map-get($breakpoints, tablet)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 2)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+
+		// TABLET, LAPTOP
+		@media screen and (min-width: map-get($breakpoints, tablet) + 1) and (max-width: map-get($breakpoints, laptop)) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 3)}#{$suffix} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: map-get($breakpoints, tablet) + 1) and (max-width: map-get($breakpoints, laptop)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 3)}#{'-portrait'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: map-get($breakpoints, tablet) + 1) and (max-height: map-get($breakpoints, laptop)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 3)}#{'-landscape'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: map-get($breakpoints, tablet) + 1) and (max-width: map-get($breakpoints, laptop)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 3)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: map-get($breakpoints, tablet) + 1) and (max-height: map-get($breakpoints, laptop)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 3)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+
+		// DESKTOP
+		@media screen and (max-width: map-get($breakpoints, desktop)) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 4)}#{$suffix} {
+				@content;
+			}
+
+		}
+
+
+		// MOBILE TO TABLET
+		@media screen and (min-width: 0) and (max-width: map-get($breakpoints, tablet)) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-to-'}#{nth($breakpoint-keys, 2)}#{$suffix} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: 0) and (max-width: map-get($breakpoints, tablet)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-to-'}#{nth($breakpoint-keys, 2)}#{'-portrait'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: 0) and (max-height: map-get($breakpoints, tablet)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-to-'}#{nth($breakpoint-keys, 2)}#{'-landscape'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: 0) and (max-width: map-get($breakpoints, tablet)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-to-'}#{nth($breakpoint-keys, 2)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: 0) and (max-height: map-get($breakpoints, tablet)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-to-'}#{nth($breakpoint-keys, 2)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+
+		// MOBILE TO LAPTOP
+		@media screen and (min-width: 0) and (max-width: map-get($breakpoints, laptop)) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-to-'}#{nth($breakpoint-keys, 3)}#{$suffix} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: 0) and (max-width: map-get($breakpoints, laptop)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-to-'}#{nth($breakpoint-keys, 3)}#{'-portrait'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: 0) and (max-height: map-get($breakpoints, laptop)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-to-'}#{nth($breakpoint-keys, 3)}#{'-landscape'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: 0) and (max-width: map-get($breakpoints, laptop)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-to-'}#{nth($breakpoint-keys, 3)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: 0) and (max-height: map-get($breakpoints, laptop)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 1)}#{'-to-'}#{nth($breakpoint-keys, 3)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+
+		// TABLET TO LAPTOP
+		@media screen and (min-width: map-get($breakpoints, tablet) + 1) and (max-width: map-get($breakpoints, laptop)) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 2)}#{'-to-'}#{nth($breakpoint-keys, 3)}#{$suffix} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: map-get($breakpoints, tablet ) + 1) and (max-width: map-get($breakpoints, laptop)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 2)}#{'-to-'}#{nth($breakpoint-keys, 3)}#{'-portrait'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: map-get($breakpoints, tablet) + 1) and (max-height: map-get($breakpoints, laptop)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 2)}#{'-to-'}#{nth($breakpoint-keys, 3)}#{'-landscape'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-width: map-get($breakpoints, tablet) + 1) and (max-width: map-get($breakpoints, laptop)) and (orientation: portrait) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 2)}#{'-to-'}#{nth($breakpoint-keys, 3)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+		@media screen and (min-height: map-get($breakpoints, tablet) + 1) and (max-height: map-get($breakpoints, laptop)) and (orientation: landscape) {
+
+			&#{$prefix}#{nth($breakpoint-keys, 2)}#{'-to-'}#{nth($breakpoint-keys, 3)}#{'-both'} {
+				@content;
+			}
+
+		}
+
+	}
+
+}
+
+
+// HELPER
+@mixin break($min: null, $max: null, $orientation: '') { // Default breakpoint mixin based on user-defined breakpoints.
+
+	// DEFAULT
+	@if $orientation == '' {
+
+		@media screen and (min-width: strip-unit($min) + 1 + px) and (max-width: $max) {
+			@content;
+		}
+
+	}
+
+	@if $orientation == 'portrait' {
+
+		@media screen and (min-width: strip-unit($min) + 1 + px) and (max-width: $max) and (orientation: portrait) {
+			@content;
+		}
+
+	}
+
+	@if $orientation == 'landscape' {
+
+		@media screen and (min-height: strip-unit($min) + 1 + px) and (max-height: $max) and (orientation: landscape) {
+			@content;
+		}
+
+	}
+
+
+	// MIN, MAX
+	@if $max == null or $max == '' {
+
+		@if $orientation == '' {
+
+			@media screen and (min-width: strip-unit($min) + 1 + px) {
+				@content;
+			}
+
+		}
+
+		@if $orientation == 'portrait' {
+
+			@media screen and (min-width: strip-unit($min) + 1 + px) and (orientation: portrait) {
+				@content;
+			}
+
+		}
+
+		@if $orientation == 'landscape' {
+
+			@media screen and (min-width: strip-unit($min) + 1 + px) and (orientation: landscape) {
+				@content;
+			}
+
+		}
+
+	}
+
+	@if $min == null or $min == '' {
+
+		@if $orientation == '' {
+
+			@media screen and (max-width: strip-unit($max) + 1 + px) {
+				@content;
+			}
+
+		}
+
+		@if $orientation == 'portrait' {
+
+			@media screen and (max-width: strip-unit($max) + 1 + px) and (orientation: portrait) {
+				@content;
+			}
+
+		}
+
+		@if $orientation == 'landscape' {
+
+			@media screen and (max-width: strip-unit($max) + 1 + px) and (orientation: landscape) {
+				@content;
+			}
+
+		}
+
+	}
+
+
+ 	// PORTRAIT, LANDSCAPE
+	@if $orientation == 'both' {
+
+		@media screen and (min-width: strip-unit($min) + 1 + px) and (max-width: $max) and (orientation: portrait) {
+			@content;
+		}
+
+		@media screen and (min-height: strip-unit($min) + 1 + px) and (max-height: $max) and (orientation: landscape) {
+			@content;
+		}
+
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* ASPECT RATIO
+/* -------------------------------------------------- */
+
+@mixin aspect-ratio($width, $height) {
+
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+		padding-top: ($height / $width) * 100%;
+		width: 100%;
+	}
+
+	> .content {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* COLORS
+/* -------------------------------------------------- */
+
+@mixin color($type: 'hex', $property: 'color', $prefix: '', $suffix: '', $alpha: 1) {
+
+	@each $name, $color in $colors {
+
+		@if $type == 'hex' or $type == '' {
+
+			&#{$prefix}#{$name}#{$suffix} {
+				#{$property}: $color;
+			}
+
+		} @else if $type == 'gradient' {
+
+			$start: 25%;
+			$stop: 100%;
+
+			&#{$prefix}#{$name}-top#{$suffix} {
+				#{$property}: linear-gradient(to top, $color $start, darken($color, $darken) $stop);
+			}
+
+			&#{$prefix}#{$name}-right#{$suffix} {
+				#{$property}: linear-gradient(to right, $color $start, darken($color, $darken) $stop);
+			}
+
+			&#{$prefix}#{$name}-bottom#{$suffix} {
+				#{$property}: linear-gradient(to bottom, $color $start, darken($color, $darken) $stop);
+			}
+
+			&#{$prefix}#{$name}-left#{$suffix} {
+				#{$property}: linear-gradient(to left, $color $start, darken($color, $darken) $stop);
+			}
+
+			&#{$prefix}#{$name}-radial#{$suffix} {
+				#{$property}: radial-gradient(circle at center, $color 0%, darken($color, $darken) 100%);
+			}
+
+			&#{$prefix}#{$name}-radial-reverse#{$suffix} {
+				#{$property}: radial-gradient(circle at center, darken($color, $darken) 0%, $color 100%);
+			}
+
+			&#{$prefix}#{$name}-slant#{$suffix} {
+				#{$property}: linear-gradient(45deg, $color $start, darken($color, $darken) $stop);
+			}
+
+			&#{$prefix}#{$name}-slant-reverse#{$suffix} {
+				#{$property}: linear-gradient(-45deg, $color $start, darken($color, $darken) $stop);
+			}
+
+		} @else if $type == 'rgba' {
+
+			&#{$prefix}#{$name}#{$suffix} {
+				#{$property}: rgba($color, $alpha);
+			}
+
+			@if $alpha == 1 {
+				@warn '"1" is defined for "$alpha" value. Framework will default to "hex" value instead.';
+			}
+
+		} @else if $type == 'svg-gradient' or $type == 'svg' {
+
+			&#{$prefix}#{$name}#{$suffix} {
+				fill: url( .svg-#{$name}-stop-color );
+			}
+
+			&#{$prefix}#{$name}-stop-color stop.start-color {
+				stop-color: $color;
+			}
+
+			&#{$prefix}#{$name}-stop-color stop.end-color {
+				stop-color: darken($color, $darken);
+			}
+
+		} @else if $type == '' {
+
+			@warn 'No "$type" value defined. Framework will default to "hex" value instead.';
+
+		}
+
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* TYPOGRAPHY
+/* -------------------------------------------------- */
+
+// FLUID TYPE
+@mixin fluid-type(
+	$min-size: 16px,
+	$max-size: 56px,
+	$min-range: map-get($breakpoints, mobile),
+	$max-range: map-get($breakpoints, desktop),
+	$unit: px) {
+
+	font-size: calc(#{strip-unit($min-size) + unquote($unit)} + #{(($max-size / ($max-size * 0 + 1)) - ($min-size / ($min-size * 0 + 1)))} * ( (100vw - #{$min-range}) / #{(($max-range / ($max-range * 0 + 1)) - ($min-range / ($min-range * 0 + 1)))}));
+
+
+	// PORTRAIT
+	@media screen and (max-width: $min-range) and (orientation: portrait) {
+		font-size: strip-unit($min-size) + unquote($unit);
+		line-height: strip-unit($min-size) / 2 + unquote($unit);
+	}
+
+	@media screen and (min-width: $max-range) and (orientation: portrait) {
+		font-size: strip-unit($max-size) + unquote($unit);
+		line-height: strip-unit($max-size) / 2 + unquote($unit);
+	}
+
+
+	// LANDSCAPE
+	@media screen and (max-height: $min-range) and (orientation: landscape) {
+		font-size: strip-unit($min-size) + unquote($unit);
+		line-height: strip-unit($min-size) / 2 + unquote($unit);
+	}
+
+	@media screen and (min-height: $max-range) and (orientation: landscape) {
+		font-size: strip-unit($max-size) + unquote($unit);
+		line-height: strip-unit($max-size) / 2 + unquote($unit);
+	}
+
+}
+
+
+// HEADLINES
+@mixin headlines() {
+
+	@for $i from 1 through 6 {
+
+		h#{7 - $i}, .h#{7 - $i} {
+			@content;
+		}
+
+	}		
+
+}
+
+
+// ICON
+@mixin icon($type: 'regular', $icon: 'f209') {
+
+	content: #{"\'\\"}#{$icon + "\'"}; // Corrects variable interpolation with proper format character encoding.
+	font: {
+		style: normal;
+		variant: normal;
+	}
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+
+	@if $type == 'brand' {
+
+		font: {
+			family: $font-icon-brand;
+			weight: normal;
+		}
+
+	} @else if $type == 'light' {
+
+		font: {
+			family: $font-icon;
+			weight: 300;
+		}
+
+	} @else if $type == 'regular' {
+
+		font: {
+			family: $font-icon;
+			weight: 400;
+		}
+
+	} @else if $type == 'solid' {
+
+		font: {
+			family: $font-icon;
+			weight: 900;
+		}
+
+	}
+
+}
+
+
+// TRUNCATE
+@mixin truncate($width: auto) {
+	overflow: hidden;
+	width: $width;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+/* -------------------------------------------------- */
+/* GUTTERS (MARGINS / PADDING)
+/* -------------------------------------------------- */
+
+@mixin gutter() {
+
+	padding: {
+		top: $gutter;
+		right: $gutter;
+		bottom: $gutter;
+		left: $gutter;
+	};
+
+	@include break($min: 0, $max: $mobile, $orientation: 'both') {
+		padding: {
+			top: $gutter / 1.2;
+			right: $gutter / 1.2;
+			bottom: $gutter / 1.2;
+			left: $gutter / 1.2;
+		};
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* EFFECTS
+/* -------------------------------------------------- */
+
+// FADE
+@mixin fade($type: 'left', $color: #fff, $alpha: 1, $scale: 100%, $start: 0, $stop: 100%, $order: 0, $prefix: '-', $suffix: '', $fixed: false, $clickable: false) {
+
+	&#{$prefix}#{$suffix} {
+
+		$position: $type;
+		content: '';
+		z-index: $order;
+		transition: {
+			property: opacity, background;
+			duration: 500ms;
+			timing-function: ease-in-out;
+		}
+
+		@if $type == 'top' or $type == 'bottom' {
+
+			#{$position}: 0;
+			left: 0;
+			width: 100%;
+			height: $scale;
+			background: linear-gradient(to unquote($type), rgba($color, 0) $start, rgba($color, $alpha) $stop);
+
+		} @else if $type == 'left' or $type == 'right' {
+
+			#{$position}: 0;
+			top: 0;
+			width: $scale;
+			height: 100%;
+			background: linear-gradient(to unquote($type), rgba($color, 0) $start, rgba($color, $alpha) $stop);
+
+		} @else if $type == 'full' or $type == 'radial' {
+
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: radial-gradient(ellipse at center, rgba($color, 0) $start, rgba($color, $alpha) $stop);
+
+		} @else if $type == 'tb' or $type == 'top-to-bottom' {
+
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: $scale;
+			background: linear-gradient(to bottom, rgba($color, $alpha) $start, rgba($color, 0) 50%, rgba($color, $alpha) $stop);
+
+		} @else if $type == 'lr' or $type == 'left-to-right' {
+
+			top: 0;
+			left: 0;
+			width: $scale;
+			height: 100%;
+			background: linear-gradient(to right, rgba($color, $alpha) $start, rgba($color, 0) 50%, rgba($color, $alpha) $stop);
+
+		}
+
+		@if $fixed == true {
+
+			position: fixed;
+
+		} @else {
+
+			position: absolute;
+
+		}
+
+		@if $clickable == false {
+			cursor: default;
+			pointer-events: none;
+		}
+
+	}
+
+}
+
+
+// SHADOWS
+@mixin shadow($type: 'box-shadow', $color: $shadow, $x: 2px, $y: 2px, $blur: 2px, $spread: 0,  $alpha: 0.5, $strength: 1, $inset: false) {
+
+	// BOX SHADOW
+	@if $type == 'box' and $inset == false or $type == 'box-shadow' and $inset == false {
+		box-shadow: $x $y $blur $spread rgba($color, $alpha),
+					($x * 2) ($y * 2) ($blur * 4) $spread lighten( rgba($color, $alpha * strip-unit(0.4)), 25% );
+ 	}
+
+	@if $type == 'box' and $inset == true or $type == 'box-shadow' and $inset == true {
+		box-shadow: inset $x $y $blur rgba($color, $alpha);
+ 	}
+
+
+	// DROP SHADOW
+	@if $type == 'drop' or $type == 'drop-shadow' {
+		filter: drop-shadow($x $y $blur rgba($color, $alpha));
+ 	}
+
+ 	@if $type == 'drop' and $inset == true or $type == 'drop-shadow' and $inset == true {
+		@warn '"inset" can only be used with "box-shadow".';
+	}
+
+
+	// TEXT SHADOW
+	@if $type == 'text' or $type == 'text-shadow' {
+		text-shadow: round($x / 2) round($y / 2) round($blur * strip-unit($strength)) rgba($color, $alpha);
+	}
+
+	@if $type == 'text' and $inset == true or $type == 'text-shadow' and $inset == true {
+		@warn '"inset" can only be used with "box-shadow".';
+	}
+
+}
+
+@mixin box-shadow-light {
+	box-shadow: $box-shadow-light;
+}
+
+@mixin box-shadow-strong {
+	box-shadow: $box-shadow-strong;
+}
+
+@mixin text-shadow-light {
+	text-shadow: $text-shadow-light;
+}
+
+@mixin text-shadow-strong {
+	text-shadow: $text-shadow-strong;
+}
+
+
+/* -------------------------------------------------- */
+/* ANIMATIONS
+/* -------------------------------------------------- */
+
+@mixin animate($name: 'my-animation', $play: true, $direction: 'normal', $mode: none, $duration: 400ms, $delay: 0ms, $repeat: 1,  $ease: 'cubic-bezier(0.4, 0, 0.2, 1)', $optimize: false) {
+
+	backface-visibility: hidden;
+	animation: {
+
+		name: $name;
+		direction: $direction;
+		fill-mode: $mode;
+		duration: $duration * $timescale;
+		delay: $delay;
+		iteration-count: $repeat;
+		timing-function: $ease;
+
+		@if $play == true {
+
+			play-state: running;
+
+		} @else {
+
+			play-state: paused;
+
+		}
+
+	}
+
+	@if $optimize { // 'will-change' has no effect on 'hover' states.
+		will-change: $property;
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* TRANSITIONS
+/* -------------------------------------------------- */
+
+@mixin transition($property: null, $duration: 400ms,  $delay: 0ms, $ease: 'cubic-bezier(0.4, 0, 0.2, 1)', $optimize: false) {
+
+	backface-visibility: hidden;
+	transition: {
+
+		duration: $duration * $timescale;
+		delay: $delay;
+
+		@if $property == '' {
+
+
+		} @else {
+
+			property: $property;
+
+		} @if $property == '' {
+
+
+		} @else {
+
+			timing-function: $ease;
+
+		}
+
+	}
+
+	@if $optimize { // 'will-change' has no effect on 'hover' states.
+		will-change: $property;
+	}
+
+}

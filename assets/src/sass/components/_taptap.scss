@@ -1,0 +1,31 @@
+.taptap-widgets-wrapper .widget {
+    a {
+        color: $white;
+        border: 1px solid $primary;
+        background: $primary;
+        transition: 0.4s;
+    }
+
+    &:hover {
+        color: $primary;
+        background: $white;
+    }
+}
+
+.taptap-menu-button-wrapper {
+    top: 31px;
+    z-index: 9999999;
+}
+
+.scrolling {
+    .taptap-menu-button-wrapper {
+        top: 12px;
+    }
+}
+.taptap-main-inner {
+    .dra-logo {
+        height: 85px;
+        margin: 0 auto;
+        display: block;
+    }
+}

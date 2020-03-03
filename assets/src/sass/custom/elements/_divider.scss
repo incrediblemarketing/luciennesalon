@@ -1,0 +1,103 @@
+/* -------------------------------------------------- */
+/* DIVIDER (HORIZONTAL RULE)
+/* -------------------------------------------------- */
+
+// VARIABLES
+$directions: (
+	//top: 'top',
+	right: 'right',
+	//bottom: 'bottom',
+	left: 'left',
+);
+
+
+// MAIN
+hr, .hr {
+	margin: {
+		top: 4rem;
+		bottom: 4rem;
+	}
+	padding: {
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+	width: 100%;
+	height: $thin;
+	border: 0;
+	outline: 0;
+}
+
+
+
+.hr {
+
+	// POSITION / COLOR
+	@each $name-color, $color in $colors {
+
+		@each $name-direction, $direction in $directions {
+
+			&-#{$name-color}-#{$name-direction} {
+
+				@include breakpoint($prefix: '-', $suffix: '') {
+
+					background: linear-gradient(to unquote($direction), rgba($color, 0) 0%, rgba($color, 1) 75%);
+
+				}
+
+			}
+
+			&-#{$name-color}-lr {
+
+				@include breakpoint($prefix: '-', $suffix: '') {
+
+					background: radial-gradient(ellipse at center, rgba($color, 1) 0%, rgba($color, 0) 75%);
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+	// PROPERTIES
+	@each $name, $height in $amounts {
+
+		&-#{$name} {
+
+			@include breakpoint($prefix: '-', $suffix: '') {
+				height: $height;
+			}
+
+		}
+
+	}
+
+	&-thin {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			height: $thin;
+		}
+
+	}
+
+	&-medium {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			height: $medium;
+		}
+
+	}
+
+	&-thick {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			height: $thick;
+		}
+
+	}
+
+}

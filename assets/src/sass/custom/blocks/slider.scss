@@ -1,0 +1,311 @@
+/* -------------------------------------------------- */
+/* SWIPER
+/* -------------------------------------------------- */
+
+.swiper-procedures {
+
+	$self: '.swiper';
+
+	margin: {
+		top: 0;
+		bottom: 0;
+	};
+	padding: {
+		top: 0;
+		bottom: 0;
+	};
+
+	.info {
+
+		opacity: 1 !important;
+		display: none;
+		margin-bottom: 2rem;
+		color: $primary;
+		font: $headline;
+
+		@include break($min: 0, $max: $mobile, $orientation: 'both') {
+			font-size: 3rem;
+		}
+
+	}
+
+	.swiper-container {
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&::before {
+			content: '';
+			z-index: 2;
+			pointer-events: none;
+			position: absolute;
+			//top: 0;
+			//left: 0;
+			width: 90%;
+			height: 90%;
+			border: 2px solid $primary;
+			background: none;
+		}
+
+		#{$self}-wrapper {
+
+			#{$self}-slide {
+
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				padding: 10rem;
+				height: 800px;
+				//background-size: cover !important;
+				background-position: center center !important;
+
+				&-active {
+
+				}
+
+				#{$self}-text-block {
+
+					@include gutter;
+					align-self: flex-end;
+					//margin-top: 12rem;
+					position: relative;
+					bottom: 100px;
+					width: 100%;
+					max-width: 600px;
+
+					.cover {
+						display: hide;
+					}
+
+					.info {
+						display: block;
+						margin-bottom: 2rem;
+						color: $white;
+						font: $headline;
+						font-size: 3em;
+					}
+
+					.excerpt {
+
+						@include gutter;
+						@include box-shadow-strong;
+						background: $primary;
+
+						h4 {
+							margin-bottom: 0rem;
+							color: $white;
+							font: $subheadline;
+							font-size: 2em;
+							text-transform: none;
+						}
+
+						p {
+							margin-bottom: 2rem;
+							color: $white;
+						}
+
+						.button {
+
+							@include break($min: 0, $max: $tablet, $orientation: 'portrait') {
+								margin: 0 auto;
+							}
+
+							@include break($min: 0, $max: $mobile, $orientation: 'both') {
+								margin: 0 auto;
+							}
+
+						}
+
+						@include break($min: 0, $max: $tablet, $orientation: 'portrait') {
+							text-align: center;
+						}
+
+						@include break($min: 0, $max: $mobile, $orientation: 'both') {
+							text-align: center;
+						}
+
+					}
+
+				}
+
+				@include break($min: $tablet, $max: $laptop, $orientation: 'both') {
+					padding: 5rem;
+				}
+
+				@include break($min: 0, $max: $tablet, $orientation: 'both') {
+					padding: 0;
+				}
+
+				@include break($min: 0, $max: $tablet, $orientation: 'portrait') {
+					justify-content: center;
+				}
+
+				@include break($min: 0, $max: $mobile, $orientation: 'both') {
+					justify-content: center;
+				}
+
+			}
+
+		}
+
+		#{$self}-button {
+
+			z-index: 2;
+
+			pointer-events: none;
+			overflow: hidden;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			align-items: flex-start;
+			justify-content: space-between;
+
+			align-self: center;
+
+			position: absolute;
+			width: 100%;
+			height: 75px;
+			background: none;
+
+			@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
+				align-self: flex-end;
+				width: 150px;
+			}
+
+			&-prev,
+			&-next {
+
+				pointer-events: all;
+				overflow: hidden;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				//flex: 1 0 50%;
+
+				position: relative;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				margin: 0;
+				width: 75px;
+				height: 75px;
+				background-color: $primary;
+				background-image: none;
+
+				&::before {
+					content: '';
+					position: absolute;
+					color: $accent;
+					font-size: 1.25em;
+				}
+
+				@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
+					flex: 1 0 50%;
+				}
+
+			}
+
+			&-prev {
+
+				&::before {
+					@include icon($type: 'solid', $icon: 'f053');
+				}
+
+			}
+
+			&-next {
+
+				&::before {
+					@include icon($type: 'solid', $icon: 'f053');
+				}
+
+				transform: scale(-1, 1);
+
+			}
+
+		}
+
+
+
+
+
+		/*
+		#{$self}-button {
+
+			z-index: 2;
+
+			pointer-events: none;
+			overflow: hidden;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			align-items: flex-start;
+			justify-content: flex-start;
+
+			align-self: flex-end;
+
+			position: absolute;
+			width: 150px;
+			height: 75px;
+			background: $white;
+
+
+			&-prev,
+			&-next {
+
+				pointer-events: all;
+				overflow: hidden;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				flex: 1 0 50%;
+
+				position: relative;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				margin: 0;
+				width: auto;
+				height: 100%;
+				border-right: 1px solid $white;
+				background-color: $primary;
+				background-image: none;
+
+				&::before {
+					content: '';
+					position: absolute;
+					color: $accent;
+					font-size: 1.25em;
+				}
+
+			}
+
+			&-prev {
+
+				&::before {
+					@include icon($type: 'light', $icon: 'f177');
+				}
+
+			}
+
+			&-next {
+				
+				&::before {
+					@include icon($type: 'light', $icon: 'f177');
+				}
+
+				transform: scale(-1, 1);
+
+			}
+
+		}
+		*/
+
+	}
+
+}

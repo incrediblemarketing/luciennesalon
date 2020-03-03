@@ -1,0 +1,300 @@
+#header.header4 {
+    height: 70px;
+    background: rgba($white, 1);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    @include mq(sm) {
+        padding: 0 25px;
+    }
+
+    @include mq(md) {
+        height: 100px;
+    }
+
+    @include mq(xxl) {
+        height: 150px;
+    }
+
+    @include mq(xxl) {
+        padding: 0 140px;
+    }
+
+    .top-logo,
+    svg {
+        height: 60px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        @include mq(md) {
+            height: 75px;
+        }
+
+        @include mq(xxl) {
+            height: 104px;
+        }
+    }
+
+    .header-right,
+    .header-left {
+        width: 63px;
+
+        @include mq(sm) {
+            width: 40%;
+        }
+    }
+
+    .header-right {
+        text-align: right;
+    }
+
+    .header-left {
+        .btn-primary:first-child {
+            margin-right: 10px;
+        }
+
+        .btn-primary:nth-child(2) {
+            display: none;
+
+            @include mq(xl) {
+                display: inline-flex;
+            }
+        }
+    }
+
+    .btn-primary {
+        min-width: auto;
+        border-width: 1px;
+        font-size: 12px;
+        padding: 5px !important;
+        margin: 0;
+        width: 63px;
+        height: 42px;
+        display: inline-flex;
+
+        @include mq(sm) {
+            width: 200px;
+            font-size: 1rem;
+            padding: 0 15px !important;
+        }
+    }
+
+    .button__menu {
+        border: none;
+        background: none;
+        cursor: pointer;
+        position: relative;
+        min-width: 34px;
+        height: 34px;
+
+        @include mq(sm) {
+            min-width: 104px;
+        }
+
+        @include mq($until: sm) {
+            padding: 0;
+            top: 5px;
+        }
+
+        &:hover {
+            .line,
+            .line::before,
+            .line::after {
+                background: $primary;
+            }
+        }
+
+        svg {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #menu-close-icon {
+            visibility: hidden;
+        }
+
+        .line {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: background, transform;
+            content: '';
+            display: inline-block;
+            position: relative;
+            width: 30px;
+            height: 2px;
+            border-radius: 0;
+            background: $black;
+            transform: rotate(0);
+            top: -5px;
+
+            &::before {
+                top: 10px;
+                right: 0;
+            }
+
+            &::after {
+                top: -10px;
+                right: 0;
+            }
+
+            &::before,
+            &::after {
+                transition: left, right 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: left, right;
+                content: '';
+                pointer-events: none;
+                position: absolute;
+                width: 20px;
+                height: 2px;
+                border-radius: 0;
+                background: $black;
+                transform: rotate(0);
+            }
+        }
+
+        &::before {
+            content: 'MENU';
+            display: inline-block;
+            margin-right: 10px;
+            color: $black;
+            transition: all 0.5s ease-in;
+
+            @include mq($until: sm) {
+                display: none;
+            }
+        }
+
+        svg {
+            line {
+                stroke: $gray;
+            }
+        }
+
+        &:hover {
+            &::before {
+                color: $primary;
+            }
+
+            svg {
+                line {
+                    stroke: $primary;
+                }
+            }
+        }
+
+        &:focus {
+            outline: none;
+
+            p {
+                font-weight: 600;
+            }
+
+            svg {
+                line {
+                    stroke-width: 3;
+                }
+            }
+        }
+    }
+}
+
+body.h4-header {
+    &.scrolling {
+        #header.header4 {
+            height: 70px;
+            box-shadow: rgba($black, 0.2) 1px 1px 6px;
+
+            @include mq(md) {
+                height: 100px;
+            }
+        }
+
+        .taptap-menu-button-wrapper {
+            top: 16px;
+
+            @include mq(md) {
+                top: 30px;
+            }
+        }
+
+        #header.header4 .top-logo,
+        #header.header4 svg {
+            height: 60px;
+            width: auto;
+
+            @include mq(md) {
+                height: 75px;
+            }
+        }
+    }
+
+    main {
+        position: relative;
+        margin-top: 70px;
+
+        @include mq(md) {
+            margin-top: 100px;
+        }
+
+        @include mq(xxl) {
+            margin-top: 150px;
+        }
+    }
+
+    #hero {
+        height: calc(100vh - 100px);
+
+        @include mq(xxl) {
+            height: calc(100vh - 150px);
+        }
+    }
+
+    .taptap-menu-button-wrapper {
+        position: fixed;
+        top: 16px;
+        right: 15px;
+        width: 63px;
+        height: 42px;
+        left: auto;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        @include mq(sm) {
+            right: 25px;
+        }
+
+        @include mq(md) {
+            top: 30px;
+        }
+
+        @include mq(xxl) {
+            top: 54px;
+        }
+
+        @include mq(xxl) {
+            right: 140px;
+        }
+
+        .taptap-main-menu-button-two {
+            width: 63px;
+            height: 42px;
+            border: 1px solid #fff;
+            display: block;
+            padding: 5px 16px;
+
+            &::before,
+            &::after,
+            .taptap-main-menu-button-two-middle:before {
+                background-color: #fff;
+                margin-top: 4px;
+                margin-bottom: 7px;
+            }
+        }
+    }
+}

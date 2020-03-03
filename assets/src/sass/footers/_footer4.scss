@@ -1,0 +1,73 @@
+#footer.f4 {
+
+    .inner-block,
+    .map-container {
+        height: 100%;
+    }
+
+    .map-container {
+        box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
+        height: 500px;
+
+        @include mq(lg) {
+            height: auto;
+        }
+    }
+
+    h3 {
+        font-size: 1.3333em;
+        text-transform: capitalize;
+        letter-spacing: 0;
+        font-weight: 500;
+    }
+
+    h4 {
+        font-size: 1em;
+        font-weight: bold;
+        margin-bottom: 0;
+        text-transform: capitalize;
+
+        @include mq(xxl) {
+            font-size: 1.3333em;
+            font-weight: 400;
+            margin-top: 30px;
+        }
+    }
+
+    .inner-block {
+        padding: 4em;
+
+        p {
+            text-transform: capitalize;
+            margin-bottom: 0;
+        }
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+
+    .gform_wrapper {
+        .gfield {
+
+            input,
+            textarea {
+                margin-bottom: 1.5rem;
+                padding: 8px 0 !important;
+                border: 0;
+                border-bottom: 1px solid rgba(0, 0, 0, .2);
+            }
+        }
+
+        input[type=submit] {
+            width: 100%;
+            max-width: 100%;
+            min-width: 100%;
+            margin: 0 !important;
+        }
+    }
+
+    .col-lg-4 {
+        margin-bottom: 25px;
+    }
+}

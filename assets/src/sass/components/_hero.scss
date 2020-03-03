@@ -1,0 +1,203 @@
+#hero {
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+    margin: 0;
+    align-items: flex-end;
+    padding-bottom: 10vh;
+    justify-content: center;
+    background-position: 39% !important;
+
+    /*
+    @include mq(xl) {
+        background-position: center !important;
+        padding-bottom: unset;
+        align-items: center;
+    }
+    */
+
+    &.video-overlay:before {
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        height: 100vh;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100vw;
+        min-height: 100vh;
+        width: auto;
+        height: auto;
+        z-index: 1;
+        transform: translateX(-50%) translateY(-50%);
+        background-size: cover;
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        max-width: none;
+        z-index: -1;
+        animation: kenburns-top 20s ease-out both;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+
+        @include mq(xxl) {
+            min-height: 100vh;
+            width: auto;
+        }
+    }
+
+    &.no-overlay:before {
+        display: none !important;
+    }
+
+    .inner {
+        width: 100%;
+
+        &.left {
+            margin-right: auto;
+        }
+
+        .info {
+            display: block;
+            position: relative;
+            margin: 0 auto;
+            z-index: 2;
+            width: calc(100% - 30px);
+
+            @include mq(md) {
+                width: 65%;
+                margin: 0 auto;
+            }
+
+            @include mq(xl) {
+                max-width: 75vw;
+                width: 44%;
+                margin-left: 50%;
+            }
+
+            @include mq(xxl) {
+                width: 34%;
+                margin-left: 56%;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                color: $charcoal;
+                line-height: 1.1em;
+                text-align: center;
+                margin-bottom: 35px;
+                font-weight: 700;
+                font-style: italic;
+
+                /*
+                @include mq(md) {
+                    font-size: 3rem;
+                    margin-bottom: 6vh;
+                }
+
+                @include mq(lg) {
+                    font-size: 3.4rem;
+                }
+
+                @include mq(xl) {
+                    text-align: left;
+                }
+                */
+
+                span {
+                    display: block;
+                    font-size: 1rem;
+                    font-weight: 300;
+                    font-style: italic;
+                    letter-spacing: 1px;
+                    line-height: 1.8em;
+
+                    @include mq(md) {
+                        font-size: 30px;
+                    }
+                }
+            }
+
+            .btn {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            &.left {
+                max-width: calc(100% - 30px);
+                margin: 0 auto;
+
+                @include mq(lg) {
+                    margin: 0 8.333337vw;
+                }
+
+                h1 {
+                    font-size: 5rem;
+                    margin-bottom: 0;
+                    text-align: left;
+                }
+
+                h3 {
+                    color: $white;
+                    font-size: 1.7rem;
+                    text-align: left;
+                    margin-bottom: 40px;
+                }
+
+                .btn {
+                    max-width: 350px;
+                }
+            }
+        }
+    }
+}
+
+#hero.hero-slider {
+    height: 100vh;
+    display: block;
+    align-items: unset;
+    justify-content: unset;
+
+    .swiper-slide {
+        width: 100%;
+        height: 100vh;
+        min-width: 100%;
+        display: block;
+
+        .inner-flex {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+
+        &.overlay::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+    }
+}

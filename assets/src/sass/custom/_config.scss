@@ -1,0 +1,320 @@
+/* -------------------------------------------------- */
+/* DOCUMENT
+/* -------------------------------------------------- */
+
+$document: (
+
+	hide-scrollbar: false, // Hide the scrollbar from the browser window. Recommened to leave 'false'.
+	customize-scrollbar: true,
+	customize-selection: false,
+
+	scrollbar: (
+
+		// SCROLL
+		width: 10px,
+
+
+		// SCROLL UP / DOWN BUTTONS
+		button-height: 0,
+		button-radius: 0,
+		button-color: #807499,
+		button-hover-color: #807499,
+
+
+		// SCROLL BAR
+		thumb-radius: 0,
+		thumb-color: darken(#807499, 10%),
+		thumb-hover-color: lighten(#807499, 10%),
+
+
+		// SCROLL TRACK
+		track-color: #e8e3cd,
+		track-hover-color: #e8e3cd,
+
+	),
+
+	selection : (
+		text-color: white,
+		background-color: #333 // While background images or gradients are allowed it is recommened to use a solid color.
+	),
+
+	background: (
+		html: transparent,
+		body: white,
+		main: transparent,
+		section: transparent
+	)
+
+) !default;
+
+
+/* -------------------------------------------------- */
+/* BREAKPOINTS
+/* -------------------------------------------------- */
+
+$breakpoints: (
+	mobile: 667px,
+	tablet: 768px,
+	laptop: 1366px,
+	desktop: 2460px
+);
+
+$generateClassSpecificBreakpoints: false; // Generates xs, sm, md, lg and xl (with portrait and landscape) versions of the original class based on user-defined breakpoints.
+
+
+/* -------------------------------------------------- */
+/* COLORS
+/* -------------------------------------------------- */
+
+// THEME
+$colors: (
+	primary: #807499,
+	secondary: #443659,
+	accent: #e8e3cd,
+	white: white,
+	light-gray: #fafafa,
+	gray: #c8c8c8,
+	dark-gray: #39383e,
+	charcoal: #29292e,
+	black: #11111e,
+	ok: #0f0,
+	warning: #fc0,
+	error: #f00,
+	shadow: #0b1261,
+	transparent: transparent
+);
+
+
+// MODIFIERS
+$lighten: 10%; // Adjust the amount of white added to a color.
+$darken: 10%; // Adjust the amount of black added to a color.
+
+
+/* -------------------------------------------------- */
+/* TYPOGRAPHY
+/* -------------------------------------------------- */
+
+$fonts: (
+
+	import: 'https://fonts.googleapis.com/css?family=Playfair+Display:500|Nunito:300&display=swap',
+
+	base: 16px,
+	scale: 1.2,
+
+	small: smaller,
+	medium: 48px,
+	large: 96px,
+
+	headline-alignment-on-mobile: false,
+	copy-alignment-on-mobile: false,
+	hyphenate-headlines: false,
+	hyphenate-copy: false,
+
+	headline: (
+		margin: 1rem,
+		color: #fff,
+		family: ('Playfair Display', serif),
+		letter-spacing: 0em,
+		word-spacing: 0em,
+		line-height: 0.5em,
+		size: 4rem,
+		style: normal,
+		variant: normal,
+		weight: 500,
+		break: normal,
+		wrap: pre-line
+	),
+
+	subheadline: (
+		margin: 1rem,
+		color: #807499,
+		family: ('Nunito', sans-serif),
+		letter-spacing: 0em,
+		word-spacing: 0.25em,
+		line-height: 1rem,
+		size: 1rem,
+		style: normal,
+		variant: normal,
+		weight: 400,
+		break: normal,
+		wrap: pre-line
+	),
+
+	copy: (
+		margin: 0,
+		color: #333,
+		family: ('Nunito', sans-serif),
+		letter-spacing: 0em,
+		word-spacing: 0.08em,
+		line-height: 1.6,
+		size: 1em,
+		style: normal,
+		variant: normal,
+		weight: 400,
+		break: normal,
+		wrap: pre-line
+	),
+
+	stack: (
+		//margin: 0,
+		//color: #29292e,
+		family: (-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif),
+		//letter-spacing: 0em,
+		//word-spacing: 0.25em,
+		//line-height: 1.6,
+		//size: 1em,
+		style: normal,
+		variant: normal,
+		weight: normal,
+		//break: normal,
+		//wrap: normal
+	),
+
+	icon: (
+		family: ('Font Awesome 5 Pro'),
+		brand: ('Font Awesome 5 Brands')
+	)
+
+) !default;
+
+
+/* -------------------------------------------------- */
+/* GUTTERS (MARGINS / PADDING)
+/* -------------------------------------------------- */
+
+$gutters: (
+	xs: 0.5rem,
+	sm: 2rem,
+	md: 4rem,
+	lg: 10rem,
+	xl: 14rem,
+	global: 2rem, // Used for consistent padding across all text blocks and other elements.
+	none: 0
+) !default;
+
+
+/* -------------------------------------------------- */
+/* SIZES
+/* -------------------------------------------------- */
+
+// WIDTHS
+$widths: (
+	xs: 800px,
+	sm: 1024px,
+	md: 1440px,
+	lg: 1920px,
+	xl: 2560px
+) !default;
+
+
+// HEIGHTS
+$heights: (
+	xs: 600px,
+	sm: 768px,
+	md: 900px,
+	lg: 1080px,
+	xl: 1440px
+) !default;
+
+
+// GENERIC VALUES
+$thin: 1px;
+$medium: 2px;
+$thick: 4px;
+$radius: 8px;
+
+
+/* -------------------------------------------------- */
+/* LAYOUT
+/* -------------------------------------------------- */
+
+// STACK ORDER (Z-INDEX)
+$stack-order: (
+	'#scroll-progress': -1,
+	'main': 1,
+	'section': auto,
+	'#footer': 2,
+	'#nav-panel': 3,
+	'#header': 4,
+	'#legal': 5,
+	'#page-transition': 6
+);
+
+
+// MAIN
+$main: (
+
+	margin: (
+
+		top: 0,
+		right: auto,
+		bottom: 0,
+		left: auto,
+
+		top-mobile: 0,
+		right-mobile: auto,
+		bottom-mobile: 0,
+		left-mobile: auto
+		
+	),
+
+	padding: (
+
+		top: 0,
+		right: 0,
+		bottom: 0,
+		left: 0,
+
+		top-mobile: 0,
+		right-mobile: 0,
+		bottom-mobile: 0,
+		left-mobile: 0
+
+	),
+
+	width: 100%,
+
+) !default;
+
+
+// SECTION
+$section: (
+
+	margin: (
+
+		top: 4rem,
+		right: auto,
+		bottom: 4rem,
+		left: auto,
+
+		top-mobile: 4rem,
+		right-mobile: auto,
+		bottom-mobile: 4rem,
+		left-mobile: auto
+
+	),
+
+	padding: (
+
+		top: 6rem,
+		right: 0,
+		bottom: 6rem,
+		left: 0,
+
+		top-mobile: 2rem,
+		right-mobile: 0,
+		bottom-mobile: 2rem,
+		left-mobile: 0
+
+	),
+
+	width: 1920px,
+
+) !default;
+
+
+/* -------------------------------------------------- */
+/* TRANSITIONS
+/* -------------------------------------------------- */
+
+$timescale: 1 !default;

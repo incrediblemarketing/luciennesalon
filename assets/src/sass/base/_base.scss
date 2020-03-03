@@ -1,0 +1,175 @@
+// ==========================================================================
+// Base
+// ==========================================================================
+
+html {
+    /*
+    background: white;
+    font-size: 16px;
+
+    @include mq(xxl) {
+        font-size: 20px;
+    }
+    */
+}
+
+body {
+    //font-family: $primary-font;
+    //font-weight: 400;
+    //font-size: 1rem;
+    //line-height: 2.1em;
+    overflow-x: hidden;
+    //color: $black;
+    //background-color: $white;
+    max-width: 100%;
+    font-kerning: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+*:last-child {
+    margin-bottom: 0;
+}
+
+.site-wrap {
+    overflow: hidden;
+}
+
+/**
+ * 1. Remove subpixel-antialiased default.
+ * 2. Keep for retina resolutions.
+ *
+ * @link: http://www.intridea.com/blog/2014/5/8/better-font-smoothing-in-chrome-on-mac-os-x
+ */
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+
+    /* 1 */
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 200dpi), only screen and (min-resolution: 1.25dppx) {
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
+
+    /* 2 */
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: $primary;
+    color: $white;
+    text-shadow: none;
+}
+
+::selection {
+    background: $primary;
+    color: $white;
+    text-shadow: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
+
+input[type='submit'] {
+    cursor: pointer;
+}
+
+#wrapper {
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+a,
+a:hover,
+a:focus,
+button:focus {
+    outline: 0 !important;
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.clearfix {
+    clear: both;
+}
+
+p {
+    margin-bottom: 35px;
+    z-index: 3;
+}
+
+.row {
+    position: relative;
+}
+
+.aligncenter {
+    margin: 0 auto 25px;
+    display: block;
+}
+
+.alignright {
+    margin: 0 0 35px;
+    padding: 0;
+    float: right;
+
+    @include mq(md) {
+        margin: 0 0 30px 25px;
+    }
+}
+
+.alignleft {
+    margin: 0 25px 30px 0;
+    float: left;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+hr {
+    background: $primary;
+    color: $primary;
+    height: 1px;
+    margin: 5vh 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+img.wp-post-image,
+img.attachment-thumbnail,
+img.attachment-medium,
+img.attachment-large,
+img.attachment-full {
+    margin: 0 auto;
+}
+
+.no-overflow {
+    overflow: hidden;
+}
+
+span {
+    &.secondary {
+        color: $secondary;
+        font-weight: 500;
+    }
+}

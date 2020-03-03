@@ -1,0 +1,54 @@
+.gallery.g2 {
+    .gallery-carousel {
+        border: 5px solid $primary;
+        border-radius: 10px;
+
+        .item {
+            display: flex;
+        }
+
+        .btn-secondary {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            margin-left: auto;
+            max-width: 100%;
+
+            @include mq(md) {
+                margin: 0;
+                max-width: 200px;
+            }
+        }
+
+        .swiper-slide {
+            padding: 35px 50px;
+        }
+    }
+
+    .gallery-content {
+        h3 {
+            padding-bottom: 10px;
+            margin-bottom: 35px;
+            border-bottom: 2px solid;
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        font-size: 14px;
+        padding: 10px 12px;
+
+        @include mq(md) {
+            font-size: intial;
+            padding: 0;
+        }
+    }
+
+    .inner-container {
+        padding: 15px;
+
+        @include mq(md) {
+            padding: 0;
+        }
+    }
+}

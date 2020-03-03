@@ -1,0 +1,54 @@
+/* -------------------------------------------------- */
+/* PROCEDURES
+/* -------------------------------------------------- */
+
+.grid {
+
+	$self: &;
+
+	overflow: visible;
+	display: grid;
+
+	&-tile {
+
+		@include box-shadow-strong;
+		margin: 0.5rem;
+
+		a {
+
+			display: flex !important;
+			align-items: center;
+			justify-content: center;
+
+			&::before {
+				background: rgba($primary, 0.75) !important;
+			}
+
+			h5 {
+				font: $headline;
+				font-size: 1.5em;
+				line-height: 1em;
+				border-bottom: none !important;
+			}
+
+			img {
+
+			}
+
+			&:hover {
+
+				&::before {
+					background: rgba($primary, 0) !important;
+				}
+
+			}
+
+		}
+
+		@include break($min: 0, $max: $tablet, $orientation: 'both') {
+			height: 200px;
+		}
+
+	}
+
+}

@@ -1,0 +1,245 @@
+.header3 {
+    padding: 15px;
+    transition: all 0.5s ease;
+
+    @include mq(lg) {
+        padding: 4vh 5vw;
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+
+        @include mq(lg) {
+            position: relative;
+            left: unset;
+            top: unset;
+            transform: unset;
+        }
+
+        .logo {
+            transition: all 0.5s ease;
+            width: 10vw;
+            height: auto;
+            min-width: 145px;
+            max-width: 300px;
+        }
+    }
+
+    .social-icons {
+        //margin-right: 2em !important;
+        //display: none !important;
+
+        @include mq(lg) {
+            display: block !important;
+        }
+
+        li {
+            display: inline-block;
+        }
+    }
+
+    .header-right-top {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 15px;
+
+        @include mq(xl) {
+            margin-bottom: 42px;
+        }
+    }
+
+    .menu-container {
+        width: auto;
+        margin-left: auto;
+        display: none;
+
+        @include mq(lg) {
+            display: table;
+        }
+    }
+
+    nav.ubermenu {
+        border-top: 1px solid $charcoal;
+        display: none;
+
+        @include mq(lg) {
+            display: block;
+        }
+
+        .ubermenu-nav {
+            display: flex;
+
+            > li {
+                flex-grow: 1;
+                position: relative;
+
+                a {
+                    padding: 30px 7px 15px;
+                    color: $charcoal;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    font-size: 16px;
+
+                    @include mq(xl) {
+                        padding: 44px 10px 15px;
+                    }
+
+                    @include mq(xxl) {
+                        padding: 44px 1.6vw 15px;
+                    }
+
+                    &::after {
+                        display: none !important;
+                    }
+                }
+
+                .ubermenu-submenu {
+                    min-width: 230px;
+                    background: $white;
+                    max-width: 250px;
+
+                    li {
+                        a {
+                            padding: 15px;
+                            &:hover {
+                                background: $primary;
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #logo {
+        position: absolute;
+        left: 80px;
+        top: 15px;
+
+        @include mq(lg) {
+            position: relative;
+            left: unset;
+            top: unset;
+        }
+    }
+
+    .btn {
+        right: 0;
+        height: 40px;
+        width: 40px;
+        padding: 17px;
+        position: absolute;
+        top: 25px;
+
+        @include mq(lg) {
+            padding: 17px 45px;
+            right: unset;
+            position: relative;
+            top: unset;
+            width: auto;
+            height: auto;
+            line-height: 1em;
+        }
+
+        svg,
+        i {
+            position: relative;
+            left: 0;
+            top: 0;
+            line-height: 40px;
+            margin-right: 0px;
+
+            @include mq(lg) {
+                left: -5px;
+                top: 2px;
+                line-height: 1em;
+                margin-right: 5px;
+            }
+        }
+
+        span {
+            display: none;
+
+            @include mq(lg) {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.scrolling {
+    .header3 {
+        height: 70px;
+        background: $white;
+        box-shadow: rgba($black, 0.2) 5px 5px 10px;
+        position: fixed !important;
+        z-index: 9999;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+
+        .logo {
+            height: 70px;
+            width: auto;
+            min-width: auto;
+        }
+
+        .header-top {
+            width: 100%;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: row-reverse;
+            width: 100%;
+
+            .header-right-top {
+                margin: 0;
+            }
+
+            .social-icons {
+                display: none !important;
+            }
+
+            .btn-primary {
+                padding: 10px;
+                right: 0;
+                top: unset;
+
+                i {
+                    left: 0;
+                    top: 0;
+                    margin-right: 0;
+                }
+                span {
+                    display: none;
+                }
+            }
+        }
+        .menu-container {
+            height: 70px;
+            margin-right: auto;
+        }
+        nav.ubermenu {
+            border-top: 0;
+            height: 100%;
+
+            .ubermenu-nav {
+                height: 100%;
+                li {
+                    a {
+                        height: 100%;
+                        display: flex;
+                        padding: 0 1vw;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}

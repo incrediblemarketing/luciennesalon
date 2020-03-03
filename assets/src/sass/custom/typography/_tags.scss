@@ -1,0 +1,122 @@
+/* -------------------------------------------------- */
+/* TAGS
+/* -------------------------------------------------- */
+
+// COMMON
+a, b, blockquote, button, cite, code, del, div, dd, dt, em, figcaption, h1, h2, h3, h4, h5, h6, i, input, ins, label, li, mark, ol, p, pre, q, s, select, small, span, strong, sub, sup, td, textarea, tr, var {
+	/*
+	color: inherit;
+	font: {
+		family: inherit;
+		size: inherit;
+	}
+	letter-spacing: inherit;
+	line-height: inherit;
+	text-align: inherit;
+	*/
+	border: 0;
+	outline: 0;
+	text-decoration: none;
+}
+
+q {
+	quotes: "'" "'";
+	//quotes: "„" "“" "‚" "‘";
+	//quotes: "«" "»" "‹" "›";
+}
+
+small {
+	font-size: map-get($fonts, small);
+	//letter-spacing: 0.05em;
+}
+
+
+// LINKS
+a[target='_blank']:not(button):not(.button):not(.no-link) {
+
+	@include transition(
+		$property: color,
+		$duration: 250ms,
+		$delay: 0ms,
+		$ease: $easeNatural,
+		$optimize: false
+	);
+	//color: inherit;
+
+	&:hover,
+	&:focus {
+		//color: inherit;
+	}
+
+	&:active {
+		//color: inherit;
+	}
+	
+	&:visited {
+		//color: inherit;
+	}
+
+}
+
+a[href^='mailto:']:not(button):not(.button):before {
+	@include transition(
+		$property: color,
+		$duration: 250ms,
+		$delay: 0ms,
+		$ease: $easeNatural,
+		$optimize: false
+	);
+	@include icon($type: 'solid', $icon: 'f0e0');
+	display: inline-block;
+	margin-right: 0.5rem;
+	width: auto;
+}
+
+a[href^='tel:']:not(button):not(.button):before {
+	@include transition(
+		$property: color,
+		$duration: 250ms,
+		$delay: 0ms,
+		$ease: $easeNatural,
+		$optimize: false
+	);
+	@include icon($type: 'solid', $icon: 'f3cd');
+	display: inline-block;
+	margin-right: 0.5rem;
+	width: auto;
+}
+
+
+// STATES
+a.is-inactive {
+	cursor: not-allowed;
+	pointer-events: none;
+	color: $dark-gray;
+}
+
+button,
+.button {
+
+	&.is-inactive {
+		cursor: not-allowed;
+		pointer-events: none;
+		color: $gray;
+		background: $gray;
+	}
+
+}
+
+
+// POINTER EVENTS / SELECTION
+main, ul {
+	//pointer-events: none;
+}
+
+a, button, li, img {
+	//pointer-events: all;
+	//user-select: all;
+}
+
+p {
+	//user-select: all;
+}

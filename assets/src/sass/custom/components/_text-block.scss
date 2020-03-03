@@ -1,0 +1,43 @@
+/* -------------------------------------------------- */
+/* TEXT BLOCK
+/* -------------------------------------------------- */
+
+.text-block {
+
+	@include gutter;
+	position: relative;
+
+	h1, h2, h3, h4, h5, h6, .headline, .subheadline {
+		color: $primary;
+		text-transform: uppercase;
+	}
+
+	p {
+		margin-bottom: 1rem;
+		padding: 0;
+		//white-space: normal;
+	}
+
+	button, .button {
+		margin: {
+			top: 4rem;
+			bottom: 4rem;
+		}
+	}
+
+	@include break($min: 0, $max: $laptop, $orientation: 'portrait') {
+		width: 90%;
+		max-width: 90%;
+	}
+
+	@include break($min: $mobile, $max: $tablet, $orientation: 'landscape') {
+		width: 90%;
+		max-width: 90%;
+	}
+
+	@include break($min: 0, $max: $mobile, $orientation: 'both') {
+		width: 100%;
+		max-width: 100%;
+	}
+
+}

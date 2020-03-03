@@ -1,0 +1,112 @@
+/* 
+        SITE PADDING
+*/
+
+.pad-v-xs {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.pad-v-sm {
+    padding-top: 2.5vw;
+    padding-bottom: 2.5vw;
+}
+
+.pad-v-md {
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
+
+.pad-v-lg {
+    padding-top: 8.333333rem;
+    padding-bottom: 8.333333rem;
+}
+
+.pad-xs {
+    padding: 15px;
+}
+
+.pad-sm {
+    padding: 30px;
+}
+
+.pad-md {
+    padding: 65px 0;
+
+    @include mq(md) {
+        padding: 5vw;
+    }
+}
+
+.pad-lg {
+    padding: 8.333333vw;
+}
+
+.pt-0 {
+    padding-top: 0;
+}
+
+.nopad {
+    padding: 0;
+}
+
+.nopad-bottom {
+    padding-bottom: 0;
+}
+
+.nopad-top {
+    padding-top: 0;
+}
+
+.nopad-left {
+    padding-left: 15px;
+
+    @include mq(lg) {
+        padding-left: 0;
+    }
+}
+
+.nopad-right {
+    padding-right: 15px;
+
+    @include mq(lg) {
+        padding-right: 0;
+    }
+}
+
+.nomar {
+    margin: 0;
+}
+
+.nomar-right {
+    margin-right: 0;
+}
+
+.nomar-left {
+    margin-left: 0;
+}
+
+.nomar-top {
+    margin-top: 0;
+}
+
+.nomar-bottom {
+    margin-bottom: 0;
+}
+
+.section-padding,
+.padding--section {
+    padding: 65px 0;
+
+    @include mq(md) {
+        padding: 10vw 0;
+    }
+}
+
+.padding--top {
+    padding-top: 95px;
+
+    @include mq(lg) {
+        padding-top: 145px;
+    }
+}

@@ -1,0 +1,332 @@
+/* -------------------------------------------------- */
+/* TYPOGRAPHY
+/* -------------------------------------------------- */
+
+.text {
+
+	// SPACING
+	@each $name, $amount in $amounts {
+
+		&-spacing-#{$name} {
+
+			@include breakpoint($prefix: '-', $suffix: '') {
+				letter-spacing: pxtoem($amount / 2);
+			}
+
+		}
+
+	}
+
+
+	// LEADING
+	@each $name, $amount in $amounts {
+
+		&-leading-#{$name} {
+
+			@include breakpoint($prefix: '-', $suffix: '') {
+				line-height: pxtoem($amount * 2);
+			}
+
+		}
+
+	}
+
+
+	// PROPERTIES
+	&-small {
+		font-size: map-get($fonts, small);
+	}
+
+	&-medium {
+		@include fluid-type(
+			$min-size: map-get($fonts, medium) / 1.5,
+			$max-size: map-get($fonts, medium),
+			$min-range: $mobile,
+			$max-range: $width
+		);
+		//font-size: strip-unit( map-get($fonts, scale) ) * 5 + vw;
+		//font-size: map-get($fonts, medium);
+		hyphens: auto;
+	}
+
+	&-large {
+		@include fluid-type(
+			$min-size: map-get($fonts, large) / 1.5,
+			$max-size: map-get($fonts, large),
+			$min-range: $mobile,
+			$max-range: $width
+		);
+		//font-size: strip-unit( map-get($fonts, scale) ) * 10 + vw;
+		font-size: map-get($fonts, large);
+		hyphens: auto;
+	}
+
+	&-lighter {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			font-weight: lighter;
+		}
+
+	}
+
+	&-bold {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			font-weight: bold;
+		}
+
+	}
+
+	&-bolder {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			font-weight: bolder;
+		}
+
+	}
+
+	&-indent-left {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			margin-left: 1em;
+			text-indent: -1em;
+		}
+
+	}
+
+	&-indent-right {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			margin-left: -1em;
+			text-indent: 1em;
+		}
+
+	}
+
+	&-left {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-align: left;
+		}
+
+	}
+
+	&-right {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-align: right;
+		}
+
+	}
+
+	&-center {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-align: center;
+		}
+
+	}
+
+	&-justify {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-align: justify;
+		}
+
+	}
+	
+	&-vertical-lr {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			writing-mode: vertical-lr;
+		}
+
+	}
+
+	&-vertical-rl {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			writing-mode: vertical-rl;
+		}
+
+	}
+
+	&-mixed {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-orientation: mixed;
+		}
+
+	}
+
+	&-sideways {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-orientation: sideways;
+		}
+
+	}
+
+	&-sideways-right {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-orientation: sideways-right;
+		}
+
+	}
+	
+	&-upright {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-orientation: upright;
+		}
+
+	}
+
+	&-capitalize {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-transform: capitalize;
+		}
+
+	}
+
+	&-lowercase {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-transform: lowercase;
+		}
+
+	}
+
+	&-uppercase {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-transform: uppercase;
+		}
+
+	}
+
+	&-normal {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			font-weight: normal;
+		}
+
+	}
+
+	&-italic {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			font-style: italic;
+		}
+
+	}
+
+	&-oblique {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			font-style: oblique;
+		}
+
+	}
+
+	&-overline {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-decoration: overline;
+		}
+
+	}
+
+	&-strike {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-decoration: line-through;
+		}
+
+	}
+
+	&-underline {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-decoration: underline;
+		}
+
+	}
+
+	&-overline-underline {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			text-decoration: overline underline;
+		}
+
+	}
+
+	&-break-all {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			word-break: break-all;
+		}
+
+	}
+
+	&-break-word {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			word-wrap: break-word;
+		}
+
+	}
+
+	&-keep-all {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			word-wrap: keep-all;
+		}
+
+	}
+
+	&-nowrap {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			white-space: nowrap;
+		}
+
+	}
+
+	&-pre {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			white-space: pre;
+		}
+
+	}
+
+	&-pre-line {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			white-space: pre-line;
+		}
+
+	}
+
+	&-pre-wrap {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			white-space: wrap;
+		}
+
+	}
+
+	&-truncate {
+
+		@include breakpoint($prefix: '-', $suffix: '') {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+	}
+
+}

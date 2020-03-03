@@ -1,0 +1,133 @@
+/* -------------------------------------------------- */
+/* COLUMN
+/* -------------------------------------------------- */
+
+.column {
+
+	$self: &;
+
+	overflow: hidden;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+
+	.cell {
+
+		//flex: 1;
+		width: 75%;
+
+		img {
+
+			object-fit: cover;
+			object-position: top center;
+
+			@include break($min: $mobile, $max: $tablet, $orientation: 'portrait') {
+				width: auto;
+				height: 600px;
+			}
+
+			@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
+				height: 300px;
+			}
+
+			@include break($min: 0, $max: $mobile, $orientation: 'landscape') {
+				width: auto;
+				//height: 600px;
+			}
+
+		}
+
+		.text-block {
+
+			padding: {
+				top: 0;
+				bottom: 0;
+			};
+			width: 75%;
+			max-width: 75%;
+
+			@include break($min: $tablet, $max: $laptop, $orientation: 'portrait') {
+				width: 90%;
+				max-width: 90%;
+			}
+
+			@include break($min: 0, $max: $tablet, $orientation: 'portrait') {
+				margin: {
+					top: 4rem;
+					bottom: 4rem;
+				}
+				width: 100%;
+				max-width: 100%;
+			}
+
+			@include break($min: $mobile, $max: $tablet, $orientation: 'landscape') {
+				width: 90%;
+				max-width: 90%;
+			}
+
+			@include break($min: 0, $max: $mobile, $orientation: 'both') {
+				margin: {
+					top: 2rem;
+					bottom: 2rem;
+				}
+				width: 100%;
+				max-width: 100%;
+			}
+
+		}
+
+
+		// MODIFIERS
+		&.equal {
+			flex: 1;
+		}
+
+		&.shrink {
+			flex: 0;
+		}
+
+		&.grow {
+			flex: 2;
+		}
+
+		@include break($min: $mobile, $max: $tablet, $orientation: 'portrait') {
+			flex: 1 auto;
+			width: 100%;
+		}
+
+		@include break($min: 0, $max: $mobile, $orientation: 'both') {
+			flex: 1 auto;
+			width: 100%;
+		}
+
+	}
+
+
+	// MODIFIERS
+	&-row-reverse {
+		flex-direction: row-reverse;
+	}
+
+	&-column-reverse {
+		flex-direction: column-reverse;
+	}
+
+
+	@include break($min: 0, $max: $tablet, $orientation: 'portrait') {
+		//flex-wrap: wrap;
+	}
+
+	@include break($min: 0, $max: $tablet, $orientation: 'landscape') {
+		//align-items: stretch;
+	}
+
+	@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
+		flex-wrap: wrap;
+	}
+
+	@include break($min: 0, $max: $mobile, $orientation: 'landscape') {
+		//align-items: flex-start;
+	}
+
+}

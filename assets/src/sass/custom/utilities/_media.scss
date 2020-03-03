@@ -1,0 +1,93 @@
+/* -------------------------------------------------- */
+/* IMAGE
+/* -------------------------------------------------- */
+
+// COMMON
+img {
+	display: block;
+	width: auto;
+	height: auto;
+	border: 0;
+}
+
+
+// SIZES
+.img {
+
+	@each $name, $width in $widths {
+
+		&-#{$name} {
+
+			@include breakpoint($prefix: '-', $suffix: '') {
+				width: auto;
+				max-width: round($width);
+			}
+
+		}
+
+	}
+
+}
+
+.thumb {
+
+	@each $name, $amount in $amounts {
+
+		&-#{$name} {
+
+			@include breakpoint($prefix: '-', $suffix: '') {
+				width: round($amount * 10);
+				height: round($amount * 10);
+			}
+
+		}
+
+	}
+
+}
+
+
+/* -------------------------------------------------- */
+/* SVG 
+/* -------------------------------------------------- */
+
+svg {
+	//display: block;
+	//width: 100%;
+	//height: auto;
+	//max-height: 100px;
+	shape-rendering: auto;
+}
+
+
+/* -------------------------------------------------- */
+/* CANVAS 
+/* -------------------------------------------------- */
+
+canvas {
+	display: block;
+}
+
+
+/* -------------------------------------------------- */
+/* IFRAME 
+/* -------------------------------------------------- */
+
+iframe {
+	border: 0;
+}
+
+
+/* -------------------------------------------------- */
+/* OBJECT-FIT
+/* -------------------------------------------------- */
+
+img, video {
+
+	&.fit {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+}

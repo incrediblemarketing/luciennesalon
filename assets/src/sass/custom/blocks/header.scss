@@ -1,0 +1,246 @@
+/* -------------------------------------------------- */
+/* HEADER
+/* -------------------------------------------------- */
+
+body {
+
+	#header {
+
+		$self: &;
+
+		margin: 0 auto;
+		padding-top: 0;
+
+		.header {
+
+			&-top {
+
+				display: flex;
+				align-items: stretch;
+				justify-content: space-between;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				margin: 0 auto;
+				width: 100%;
+				max-width: $width;
+
+				.logo {
+
+					overflow: hidden;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					position: static;
+					width: 150px;
+					height: 100%;
+					//background: $white;
+					transform: none !important;
+
+					img.logo {
+						display: block;
+						padding: 0.25rem;
+						width: 100%;
+						height: auto;
+						//height: 60px;
+					}
+
+					img.logo-mobile {
+						display: none;
+						filter:  brightness(0) invert(1);
+					}
+
+					@include break($min: 0, $max: 1110px, $orientation: '') {
+
+						img.logo {
+							display: none;
+						}
+
+						img.logo-mobile {
+							display: block;
+						}
+
+					}
+
+				}
+				
+			}
+
+			&-right {
+
+				align-items: center;
+
+				&-top {
+
+					margin: {
+						top: 1rem;
+						right: 0 !important;
+						bottom: 1rem;
+						left: 0;
+					};
+
+					.social-icons {
+
+						@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
+							display: none !important;
+						}
+
+					}
+
+					.button {
+
+
+						margin: 0 1rem;
+						width: auto;
+						max-width: none;
+
+						&-label {
+							//font-size: 0.75em;
+						}
+
+						&-icon {
+							margin: {
+								left: 1rem;
+								right: auto;
+							};
+						}
+
+						@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
+							display: none;
+						}
+
+					}
+
+					#menu-toggle {
+
+						position: static;
+						margin-top: 0px;
+
+						div {
+
+							&::before, &::after, div::after {
+								background-color: $white;
+							}
+
+						}
+
+						@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
+							//margin-top: 15px;
+						}
+						
+					}
+
+				}
+
+				.menu-container {
+
+					@include break($min: 0, $max: $laptop, $orientation: 'portrait') {
+						display: none;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+// MODIFIERS
+body.scrolling {
+
+	#header {
+
+		$self: &;
+
+		padding-top: 0;
+		//height: auto;
+
+		.header {
+
+			&-top {
+
+				.logo {
+
+					//@include break($min: 0, $max: 1110px, $orientation: '') {
+
+						img.logo {
+							display: none;
+						}
+
+						img.logo-mobile {
+							display: block;
+							filter: brightness(1) invert(0);
+						}
+
+					//}
+
+				}
+
+			}
+
+			&-right {
+
+				&-top {
+
+					.button {
+
+						color: $primary;
+						border: none;
+
+						&-label {}
+
+						&-icon {}
+
+						&:hover {
+							color: $secondary;
+							box-shadow: none;
+							transform: none;
+						}
+
+
+					}
+
+					#menu-toggle {
+
+						position: static;
+						margin-top: 0px;
+
+						div {
+
+							&::before, &::after, div::after {
+								background-color: $primary;
+							}
+
+						}
+
+						@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
+							//margin-top: 15px;
+						}
+						
+					}
+
+				}
+
+				.menu-container {
+
+				}
+
+			}
+
+		}
+		
+	}
+
+}
+
+
+// MENU OVERLAY
+.taptap-background-color,
+.taptap-background-image,
+.taptap-background-overlay,
+.taptap-main-wrapper {
+	z-index: 1;
+}

@@ -1,0 +1,129 @@
+.gallery.g3 {
+    background: #000;
+
+    .inner-container {
+        border: 1px solid #666;
+        padding: 15px 30px;
+    }
+
+    h4.fancy {
+        color: $white;
+        margin: 20px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        text-align: left;
+
+        &::after {
+            background-color: $primary;
+            content: '\a0';
+            flex-grow: 1;
+            height: 1px;
+            position: relative;
+            top: 0.5em;
+        }
+
+        span {
+            padding-right: 15px;
+        }
+    }
+
+    .swiper-slide {
+        display: block;
+
+        @include mq(lg) {
+            display: flex;
+        }
+
+        >div {
+            width: 100%;
+            color: $white;
+
+            @include mq(lg) {
+                width: 50%;
+            }
+
+            img {
+                width: 50%;
+                padding: 5px;
+            }
+
+            &:first-child {
+                display: inline;
+            }
+        }
+
+        >.desc>hr:first-of-type {
+            margin-bottom: 8px;
+        }
+    }
+
+    .desc {
+        padding: 35px 0px;
+
+        @include mq(lg) {
+            padding: 0 50px;
+        }
+    }
+
+    .breadcrumb {
+        padding: 0;
+        margin-bottom: 20px;
+        list-style: none;
+        background-color: transparent;
+        border-radius: 0;
+        text-transform: uppercase;
+
+        a {
+            color: $primary;
+            margin-right: 5px;
+        }
+    }
+
+    hr {
+        background: $white;
+        color: $white;
+        height: 1px;
+    }
+
+    .gallery-carousel {
+        padding-top: 70px;
+    }
+
+    .procedure-links a {
+        display: block;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        position: absolute;
+        margin-bottom: 0;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        user-select: none;
+        background-image: none;
+        display: inline-block;
+        font-size: 1.125em;
+        padding: 10px 35px;
+        border-radius: 0;
+        text-decoration: none !important;
+        background: transparent;
+        color: $white;
+        border: 1px solid $white;
+        transition: all .2s ease-in-out;
+        top: 22px;
+        left: 0;
+        width: auto;
+        height: auto;
+    }
+
+    .swiper-button-next {
+        right: 0;
+        left: auto;
+    }
+}

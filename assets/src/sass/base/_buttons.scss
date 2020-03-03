@@ -1,0 +1,58 @@
+.btn {
+    position: relative;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.1em;
+    overflow: hidden;
+    z-index: 0;
+    height: 50px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    padding: 0 10px;
+    width: 100%;
+    transition: all 0.4s ease;
+    letter-spacing: 0px;
+
+    @include mq(lg) {
+        width: 275px;
+        font-size: 18px;
+    }
+
+    i {
+        margin-right: 10px;
+    }
+
+    &:hover {
+        color: $white;
+    }
+
+    &:focus {
+        outline: none !important;
+        box-shadow: unset !important;
+    }
+}
+
+.btn-primary {
+    background: $primary;
+    color: $white;
+    border: 1px solid $primary;
+
+    &:hover {
+        background: $white;
+        color: $primary;
+    }
+}
+
+.btn-secondary {
+    background: transparent;
+    color: $black;
+    border: 1px solid $black;
+
+    &:hover {
+        background: $black;
+        color: $white;
+    }
+}

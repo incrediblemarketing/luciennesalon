@@ -1,0 +1,21 @@
+/* -------------------------------------------------- */
+/* CTA
+/* -------------------------------------------------- */
+
+.cta-footer {
+
+	@include gutter;
+	margin-top: 2rem;
+	border-radius: 5px;
+	//border: 1px solid $gray;
+	background: lighten($accent, 10%);
+
+	h2 {
+		margin-top: 1rem !important;
+	}
+
+	@include break($min: 0, $max: $mobile, $orientation: 'both') {
+		//padding: 1rem;
+	}
+
+}

@@ -1,0 +1,168 @@
+/* -------------------------------------------------- */
+/* REFERENCE GUIDE
+/* -------------------------------------------------- */
+
+// emtopx(1em);
+// pxtoem(16px);
+// strip-unit(24px);
+
+
+/* -------------------------------------------------- */
+/* EM TO PX
+/* -------------------------------------------------- */
+
+@function emtopx($em) {
+
+	@if $em == 0 {
+
+		@return 0;
+
+	}
+	
+	@return strip-unit($em / 1em) * strip-unit(1em / 1em) * map-get($fonts, base) + 0px;
+
+}
+
+
+/* -------------------------------------------------- */
+/* PX TO EM
+/* -------------------------------------------------- */
+
+@function pxtoem($px) {
+
+	@return ( strip-unit($px) / strip-unit( map-get($fonts, base) ) ) + 0em;
+
+}
+
+
+/* -------------------------------------------------- */
+/* PX TO REM
+/* -------------------------------------------------- */
+
+@function pxtorem($px) {
+
+	$rem: $px / map-get($fonts, base);
+
+	@return #{$rem}rem;
+
+}
+
+/*
+@mixin pxtorem($px) {
+
+	font-size: $px;
+	font-size: pxtorem($px);
+
+}
+*/
+
+
+/* -------------------------------------------------- */
+/* RETURN FIRST OR LAST ITEM IN LIST
+/* -------------------------------------------------- */
+
+@function first($list) {
+
+	@return nth($list, 1);
+	
+}
+
+@function last($list) {
+
+	@return nth( $list, length($list) );
+
+}
+
+
+/* -------------------------------------------------- */
+/* STRIP UNIT
+/* -------------------------------------------------- */
+
+@function strip-unit($number) {
+
+	@if type-of($number) == 'number' and not unitless($number) {
+
+		@return $number / ($number * 0 + 1);
+
+	}
+
+	@return $number;
+
+}
+
+
+/* -------------------------------------------------- */
+/* TYPE CHECKING
+/* -------------------------------------------------- */
+
+@function is-absolute-length($value) {
+
+	@return is-number($value) and index('cm' 'mm' 'in' 'px' 'pt' 'pc', unit($value)) != null;
+
+}
+
+@function is-angle($value) {
+
+	@return is-number($value) and index('deg' 'rad' 'grad' 'turn', unit($value)) != null;
+
+}
+
+@function is-duration($value) {
+
+	@return is-time($value);
+
+}
+
+@function is-frequency($value) {
+
+	@return is-number($value) and index('Hz' 'kHz', unit($value)) != null;
+
+}
+
+@function is-integer($value) {
+
+	@return is-number($value) and round($value) == $value;
+
+}
+
+@function is-length($value) {
+
+	@return is-relative-length($value) or is-absolute-length($value);
+
+}
+
+@function is-number($value) {
+
+	@return type-of($value) == 'number';
+
+}
+
+@function is-percentage($value) {
+
+	@return is-number($value) and unit($value) == '%';
+
+}
+
+@function is-position($value) {
+	
+	@return is-length($value) or is-percentage($value) or index('top' 'right' 'bottom' 'left' 'center', $value) != null;
+
+}
+
+@function is-relative-length($value) {
+
+	@return is-number($value) and index('em' 'ex' 'ch' 'rem' 'vw' 'vh' 'vmin' 'vmax', unit($value)) != null;
+
+}
+
+@function is-resolution($value) {
+
+	@return is-number($value) and index('dpi' 'dpcm' 'dppx', unit($value)) != null;
+
+}
+
+@function is-time($value) {
+
+	@return is-number($value) and index('ms' 's', unit($value)) != null;
+
+}

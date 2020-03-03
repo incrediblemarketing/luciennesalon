@@ -1,0 +1,93 @@
+.gform_wrapper {
+    div.validation_error {
+        color: $white;
+        background: $error;
+        border-color: $error;
+        font-weight: normal;
+        text-transform: uppercase;
+        font-size: 1rem;
+    }
+
+    li.gfield.gfield_error.gfield_contains_required {
+
+        div.ginput_container,
+        label.gfield_label {
+            margin: 0;
+        }
+    }
+
+    li.gfield_error {
+
+        input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+        textarea.textarea {
+            border: 1px solid $error;
+            padding: 10px !important;
+            margin: 0;
+        }
+    }
+
+    &.gform_validation_error {
+        .validation_error {
+            color: $white;
+            border: none;
+            background: $error;
+            margin: 0 0 35px 0;
+            padding: 15px 15px;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .gform_body {
+            ul.gform_fields {
+                li {
+                    label {
+                        top: -2px;
+                        padding: 6px;
+                        left: 15px;
+                    }
+
+                    .validation_message {
+                        color: $error;
+                    }
+                }
+
+                li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
+                    max-width: 100% !important;
+                    margin: 0 !important;
+                    border: none;
+                    background: transparent;
+                    width: 100%;
+
+                    label {
+                        top: -12px;
+                        padding: 6px;
+                        left: 15px;
+                    }
+
+                    div.ginput_container {
+                        margin-top: 0;
+                    }
+
+                    input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+                    textarea {
+                        border: 1px solid $error;
+                        padding: 12px 20px !important;
+                    }
+
+                    div.gfield_description,
+                    .validation_message {
+                        padding: 0;
+                        font-size: 1rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer .gform_wrapper .field_description_below .gfield_description {
+    padding: 0 !important;
+    margin-bottom: 15px;
+    color: $error;
+}

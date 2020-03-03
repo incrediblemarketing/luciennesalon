@@ -1,0 +1,73 @@
+/* -------------------------------------------------- */
+/* SCROLLBAR
+/* -------------------------------------------------- */
+
+@if map-get($document, hide-scrollbar) == false and map-get($document, customize-scrollbar) == true {
+
+	// SCROLLBAR
+	::-webkit-scrollbar {
+		width: map-get(map-get($document, scrollbar), width);
+	}
+
+
+	// BUTTON
+	::-webkit-scrollbar-button {
+
+		display: block;
+		height: map-get(map-get($document, scrollbar), button-height);
+		border-radius: map-get(map-get($document, scrollbar), button-radius);
+		background: map-get(map-get($document, scrollbar), button-color);
+
+		&:hover {
+			background-color: map-get(map-get($document, scrollbar), button-hover-color);
+		}
+
+	}
+
+
+	// BAR
+	::-webkit-scrollbar-thumb {
+
+		border-radius: map-get(map-get($document, scrollbar), thumb-radius);
+		background: map-get(map-get($document, scrollbar), thumb-color);
+
+		&:hover {
+			background: map-get(map-get($document, scrollbar), thumb-hover-color);
+		}
+
+	}
+
+
+	// TRACK
+	::-webkit-scrollbar-track {
+
+		background: map-get(map-get($document, scrollbar), track-color);
+
+		&-piece {}
+
+		&:hover {
+			background: map-get(map-get($document, scrollbar), track-hover-color);
+		}
+
+	}
+
+
+	// CORNER / RESIZER
+	::-webkit-scrollbar-corner {}
+	::-webkit-resizer {}
+
+}
+
+
+/* -------------------------------------------------- */
+/* SELECTION
+/* -------------------------------------------------- */
+
+@if map-get($document, customize-selection) == true {
+
+	::selection {
+		color: map-get(map-get($document, selection), text-color);
+		background: map-get(map-get($document, selection), background-color);
+	}
+
+}

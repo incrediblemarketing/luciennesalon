@@ -1,0 +1,113 @@
+.header1 {
+    background: $white;
+
+    h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .header-top {
+        height: 100%;
+        padding: 0 25px;
+    }
+
+    nav.ubermenu {
+        display: none;
+
+        @include mq(lg) {
+            display: block;
+        }
+
+        .ubermenu-nav > li .ubermenu-submenu {
+            min-width: 230px;
+        }
+    }
+
+    .social-icons {
+        display: none;
+
+        @include mq(lg) {
+            display: block;
+        }
+
+        li {
+            a {
+                color: $primary;
+            }
+        }
+    }
+
+    .btn {
+        right: 15px;
+        height: 40px;
+        width: 40px;
+        padding: 0;
+        position: absolute;
+        top: 25px;
+
+        @include mq(lg) {
+            right: 25px;
+            position: relative;
+            top: unset;
+            width: auto;
+            height: auto;
+        }
+
+        svg,
+        i {
+            position: relative;
+            left: 0;
+            top: 0;
+            line-height: 40px;
+
+            @include mq(lg) {
+                left: -5px;
+                top: 2px;
+            }
+        }
+
+        span {
+            display: none;
+
+            @include mq(lg) {
+                display: inline-block;
+            }
+        }
+    }
+
+    .header-left,
+    .header-right {
+        width: 30vw;
+    }
+
+    .header-right {
+        text-align: right;
+    }
+
+    .logo {
+        position: relative;
+        top: 15px;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+
+        svg {
+            height: 80px;
+            width: auto;
+        }
+
+        @include mq(sm) {
+            position: absolute;
+            left: 80px;
+        }
+
+        @include mq(lg) {
+            position: relative;
+            left: unset;
+            top: unset;
+        }
+    }
+}

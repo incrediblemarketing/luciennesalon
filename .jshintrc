@@ -1,0 +1,10 @@
+{
+  "undef": false,
+  "unused": false,
+  "browser": true,
+  "sub": true,
+  "globals": {
+    "wp": false,
+    "jQuery": false
+  }
+}

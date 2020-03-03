@@ -1,0 +1,87 @@
+/* -------------------------------------------------- */
+/* HELPERS
+/* -------------------------------------------------- */
+
+@mixin clear {
+
+	*zoom: 1;
+
+	&::before, &::after {
+		content: '';
+		display: table;
+	}
+
+	&::after {
+		clear: both;
+	}
+
+}
+
+@mixin flex-vh { // Behaves similarly to 'flex-vh' class.
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin flex-equal-column-height { // Equalize height between 2 or more columns. Behaves similarly to 'flex-equal-column-height' class.
+	flex-direction: column;
+	//align-items: stretch;
+	justify-content: space-between;
+	height: 100%;
+}
+
+@mixin fix-font-render { // Fix inconsistencies with font rendering and prevents blinking. Only apply to text animated with SplitText. Not intended for common usage.
+	font-kerning: none;
+	-webkit-text-rendering: optimizeSpeed;
+	text-rendering: optimizeSpeed;
+	transform: translateZ(0);
+}
+
+@mixin force-gpu { // Force use of GPU rendering. Not intended for common usage.
+	backface-visibility: hidden;
+	transform: translateZ(0);
+	perspective: 1000;
+	will-change: transform;
+}
+
+@mixin left-auto {
+
+	margin: {
+		left: 0;
+		right: auto;
+	}
+
+}
+
+@mixin right-auto {
+
+	margin: {
+		left: auto;
+		right: 0;
+	}
+	
+}
+
+@mixin position-reset { // Will reset the element position to be part of the normal page flow. Behaves similarly to 'position-reset' class.
+	position: static;
+	top: auto;
+	right: auto;
+	bottom: auto;
+	left: auto;
+}
+
+@mixin pseudo {
+	content: '';
+	position: absolute;
+}
+
+@mixin reset { // Create a style-cleaned and self-contained component.
+	all: initial;
+	contain: content;
+}
+
+@mixin unset { // Set properties to inital values. *Note: Not supported in IE 11.
+	all: unset;
+}

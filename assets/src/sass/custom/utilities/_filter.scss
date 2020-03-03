@@ -1,0 +1,115 @@
+/* -------------------------------------------------- */
+/* FILTER
+/* -------------------------------------------------- */
+
+// Note: There is an issues with Windows 10 HDR on 4K displays affecting the CSS filters.
+
+
+// BOX SHADOW
+.box-shadow {
+
+	@each $name, $amount in $amounts {
+
+		&-#{$name} {
+
+			@include breakpoint($prefix: '-', $suffix: '') {
+
+				@include shadow($type: 'box-shadow', $color: $black, $x: 0, $y: $amount * 0.75, $blur: $amount, $spread: 0, $alpha: 0.25, $strength: 0, $inset: false);
+
+			}
+
+		}
+
+	}
+
+}
+
+
+// DROP SHADOW
+.drop-shadow {
+
+	@each $name, $amount in $amounts {
+
+		&-#{$name} {
+
+			@include breakpoint($prefix: '-', $suffix: '') {
+
+				@include shadow($type: 'drop-shadow', $color: $black, $x: $amount * 0.5, $y: $amount * 0.5, $blur: $amount, $spread: 0, $alpha: 0.25, $strength: 0, $inset: false);
+
+			}
+
+		}
+
+	}
+
+}
+
+
+// TEXT SHADOW
+.text-shadow {
+
+	@each $name, $amount in $amounts {
+
+		&-#{$name} {
+
+			@include breakpoint($prefix: '-', $suffix: '') {
+
+				@include shadow($type: 'text-shadow', $color: $black, $x: $amount * 0.5, $y: $amount, $blur: 2px, $alpha: 0.5, $strength: 1);
+
+			}
+
+		}
+
+	}
+
+}
+
+
+// BLUR
+.blur {
+
+	@each $name, $amount in $amounts {
+
+		&-#{$name} {
+
+			@include breakpoint($prefix: '-', $suffix: '') {
+				filter: blur($amount / 2);
+			}
+
+		}
+
+		&-svg {
+
+			@include breakpoint($prefix: '-', $suffix: '') {
+				filter: url(#blur);
+			}
+
+		}
+
+	}
+
+}
+
+
+// BACKDROP BLUR
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+
+	.frost {
+
+		@each $name, $amount in $amounts {
+
+			&-#{$name} {
+
+				@include breakpoint($prefix: '-', $suffix: '') {
+					//background: rgba($charcoal, 0);
+					background: linear-gradient(to bottom, rgba($charcoal, 1) 0%, rgba($charcoal, 0) 100%);
+					backdrop-filter: blur($amount * 2);
+				}
+
+			}
+
+		}
+
+	}
+
+}

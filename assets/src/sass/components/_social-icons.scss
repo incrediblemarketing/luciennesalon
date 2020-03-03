@@ -1,0 +1,28 @@
+.social-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li + li {
+        margin-left: 8px;
+    }
+
+    a {
+        height: 40px;
+        width: 40px;
+        font-size: 16px;
+        line-height: 39px;
+        margin: 0;
+        color: $charcoal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s;
+        position: relative;
+        -webkit-transition: all 0.4s;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+}

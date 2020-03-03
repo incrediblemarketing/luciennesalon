@@ -1,0 +1,58 @@
+// ==========================================================================
+// SITE NAV
+// ==========================================================================
+.site-nav {
+    .logo {
+        svg {
+            display: block;
+            height: 50px;
+        }
+    }
+
+    .menu {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        >li {
+            display: flex;
+
+            +li {
+                margin-left: 1em;
+            }
+
+            >a {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .sub-menu {
+            display: none;
+        }
+    }
+}
+
+.site-nav-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all .2s;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    // offset if WP admin bar is present
+    .admin-bar & {
+        top: 46px;
+
+        @media (min-width: 783px) {
+            top: 32px;
+        }
+    }
+}
