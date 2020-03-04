@@ -3,244 +3,242 @@
 /* -------------------------------------------------- */
 
 body {
+    #header {
+        $self: &;
 
-	#header {
+        margin: 0 auto;
+        padding-top: 0;
 
-		$self: &;
+        .header {
+            &-top {
+                display: flex;
+                align-items: stretch;
+                justify-content: space-between;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                margin: 0 auto;
+                width: 100%;
+                max-width: $width;
 
-		margin: 0 auto;
-		padding-top: 0;
+                .logo {
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: static;
+                    width: 150px;
+                    height: 100%;
+                    //background: $white;
+                    transform: none !important;
 
-		.header {
+                    img.logo {
+                        display: block;
+                        padding: 0.25rem;
+                        width: 100%;
+                        height: auto;
+                        //height: 60px;
+                    }
 
-			&-top {
+                    img.logo-mobile {
+                        display: none;
+                        filter: brightness(0) invert(1);
+                    }
 
-				display: flex;
-				align-items: stretch;
-				justify-content: space-between;
-				flex-direction: row;
-				flex-wrap: nowrap;
-				margin: 0 auto;
-				width: 100%;
-				max-width: $width;
+                    @include break($min: 0, $max: 1110px, $orientation: "") {
+                        img.logo {
+                            display: none;
+                        }
 
-				.logo {
+                        img.logo-mobile {
+                            display: block;
+                        }
+                    }
+                }
+            }
 
-					overflow: hidden;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					position: static;
-					width: 150px;
-					height: 100%;
-					//background: $white;
-					transform: none !important;
+            &-right {
+                align-items: center;
 
-					img.logo {
-						display: block;
-						padding: 0.25rem;
-						width: 100%;
-						height: auto;
-						//height: 60px;
-					}
+                &-top {
+                    margin: {
+                        top: 1rem;
+                        right: 0 !important;
+                        bottom: 1rem;
+                        left: 0;
+                    }
 
-					img.logo-mobile {
-						display: none;
-						filter:  brightness(0) invert(1);
-					}
+                    .social-icons {
+                        @include break(
+                            $min: 0,
+                            $max: $mobile,
+                            $orientation: "portrait"
+                        ) {
+                            display: none !important;
+                        }
+                    }
 
-					@include break($min: 0, $max: 1110px, $orientation: '') {
+                    .button {
+                        margin: 0 1rem;
+                        width: auto;
+                        max-width: none;
 
-						img.logo {
-							display: none;
-						}
+                        &-label {
+                            //font-size: 0.75em;
+                        }
 
-						img.logo-mobile {
-							display: block;
-						}
+                        &-icon {
+                            margin: {
+                                left: 1rem;
+                                right: auto;
+                            }
+                        }
+                        @include mq($until: xl) {
+                            border: none;
+                            margin-right: 45px;
+                        }
+                        .button-label {
+                            @include break(
+                                $min: 0,
+                                $max: $mobile,
+                                $orientation: "portrait"
+                            ) {
+                                display: none;
+                            }
+                        }
+                    }
 
-					}
+                    #menu-toggle {
+                        position: static;
+                        margin-top: 0px;
 
-				}
-				
-			}
+                        div {
+                            &::before,
+                            &::after,
+                            div::after {
+                                background-color: $white;
+                            }
+                        }
 
-			&-right {
+                        @include break(
+                            $min: 0,
+                            $max: $mobile,
+                            $orientation: "portrait"
+                        ) {
+                            //margin-top: 15px;
+                        }
+                    }
+                }
 
-				align-items: center;
-
-				&-top {
-
-					margin: {
-						top: 1rem;
-						right: 0 !important;
-						bottom: 1rem;
-						left: 0;
-					};
-
-					.social-icons {
-
-						@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
-							display: none !important;
-						}
-
-					}
-
-					.button {
-
-
-						margin: 0 1rem;
-						width: auto;
-						max-width: none;
-
-						&-label {
-							//font-size: 0.75em;
-						}
-
-						&-icon {
-							margin: {
-								left: 1rem;
-								right: auto;
-							};
-						}
-
-						@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
-							display: none;
-						}
-
-					}
-
-					#menu-toggle {
-
-						position: static;
-						margin-top: 0px;
-
-						div {
-
-							&::before, &::after, div::after {
-								background-color: $white;
-							}
-
-						}
-
-						@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
-							//margin-top: 15px;
-						}
-						
-					}
-
-				}
-
-				.menu-container {
-
-					@include break($min: 0, $max: $laptop, $orientation: 'portrait') {
-						display: none;
-					}
-
-				}
-
-			}
-
-		}
-
-	}
-
+                .menu-container {
+                    @include break(
+                        $min: 0,
+                        $max: $laptop,
+                        $orientation: "portrait"
+                    ) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 }
-
 
 // MODIFIERS
 body.scrolling {
+    #header {
+        $self: &;
 
-	#header {
+        padding-top: 0;
+        //height: auto;
 
-		$self: &;
+        .header {
+            &-top {
+                .logo {
+                    //@include break($min: 0, $max: 1110px, $orientation: '') {
 
-		padding-top: 0;
-		//height: auto;
+                    img.logo {
+                        display: none;
+                    }
 
-		.header {
+                    img.logo-mobile {
+                        display: block;
+                        filter: brightness(1) invert(0);
+                    }
 
-			&-top {
+                    //}
+                }
+            }
 
-				.logo {
+            &-right {
+                &-top {
+                    .button {
+                        color: $primary;
+                        border: none;
 
-					//@include break($min: 0, $max: 1110px, $orientation: '') {
+                        &-label {
+                        }
 
-						img.logo {
-							display: none;
-						}
+                        &-icon {
+                        }
 
-						img.logo-mobile {
-							display: block;
-							filter: brightness(1) invert(0);
-						}
+                        &:hover {
+                            color: $secondary;
+                            box-shadow: none;
+                            transform: none;
+                        }
+                    }
 
-					//}
+                    #menu-toggle {
+                        position: static;
+                        margin-top: 0px;
 
-				}
+                        div {
+                            &::before,
+                            &::after,
+                            div::after {
+                                background-color: $primary;
+                            }
+                        }
 
-			}
+                        @include break(
+                            $min: 0,
+                            $max: $mobile,
+                            $orientation: "portrait"
+                        ) {
+                            //margin-top: 15px;
+                        }
+                    }
+                }
 
-			&-right {
-
-				&-top {
-
-					.button {
-
-						color: $primary;
-						border: none;
-
-						&-label {}
-
-						&-icon {}
-
-						&:hover {
-							color: $secondary;
-							box-shadow: none;
-							transform: none;
-						}
-
-
-					}
-
-					#menu-toggle {
-
-						position: static;
-						margin-top: 0px;
-
-						div {
-
-							&::before, &::after, div::after {
-								background-color: $primary;
-							}
-
-						}
-
-						@include break($min: 0, $max: $mobile, $orientation: 'portrait') {
-							//margin-top: 15px;
-						}
-						
-					}
-
-				}
-
-				.menu-container {
-
-				}
-
-			}
-
-		}
-		
-	}
-
+                .menu-container {
+                }
+            }
+        }
+    }
 }
-
 
 // MENU OVERLAY
 .taptap-background-color,
 .taptap-background-image,
 .taptap-background-overlay,
 .taptap-main-wrapper {
-	z-index: 1;
+}
+.taptap-image img {
+    filter: brightness(0) invert(1);
+    width: 325px;
+}
+.taptap-menu-button-wrapper {
+    top: 22px !important;
+
+    body.scrolling & {
+        top: 12px !important;
+
+        .taptap-main-menu-button-two {
+            &:before,
+            &:after,
+            .taptap-main-menu-button-two-middle:before {
+                background-color: rgb(128, 116, 153);
+            }
+        }
+    }
 }

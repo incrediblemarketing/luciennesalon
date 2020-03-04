@@ -31,7 +31,7 @@
         }
 
         &::before {
-            content: '';
+            content: "";
             display: block;
             background: rgba($black, 0.4);
             color: $white;
@@ -66,10 +66,16 @@
 
     .swiper-button-next {
         right: -55px;
+        @include mq($until: md) {
+            right: 0;
+        }
     }
 
     .swiper-button-prev {
         left: -55px;
+        @include mq($until: md) {
+            left: 0;
+        }
     }
 
     &:hover {

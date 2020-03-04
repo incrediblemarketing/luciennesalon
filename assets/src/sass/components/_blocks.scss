@@ -21,7 +21,7 @@
     }
 
     &::before {
-        content: '';
+        content: "";
         display: block;
         width: 100%;
         height: 100%;
@@ -43,7 +43,7 @@
     }
 }
 .block__instagram {
-    background: $white;
+    background: #807499;
 
     .social-top {
         padding: 60px 0;
@@ -59,6 +59,7 @@
         align-items: center;
         display: flex;
         text-align: center;
+        color: $white;
 
         @include mq(md) {
             text-align: left;
@@ -149,7 +150,7 @@
             color: #eee;
         }
     }
-    input[type='submit'] {
+    input[type="submit"] {
         border: 1px solid $white;
         color: $white;
         background: transparent;
@@ -176,13 +177,14 @@
 }
 
 section.faqs {
-    background: url(/wp-content/uploads/2019/10/hotel-wallpaper-black.png) repeat;
+    background: url(/wp-content/uploads/2019/10/hotel-wallpaper-black.png)
+        repeat;
     position: relative;
     z-index: 0;
     color: $white;
 
     &::before {
-        content: '';
+        content: "";
         display: block;
         width: 100%;
         height: 100%;
@@ -255,7 +257,7 @@ section.faqs {
             z-index: 0;
 
             &::before {
-                content: '';
+                content: "";
                 display: block;
                 width: 100%;
                 height: 100%;

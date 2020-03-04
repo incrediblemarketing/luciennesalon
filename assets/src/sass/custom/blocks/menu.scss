@@ -3,170 +3,133 @@
 /* -------------------------------------------------- */
 
 body {
+    #header {
+        $self: &;
 
-	#header {
+        .header {
+            &-right {
+                .menu-container {
+                    nav {
+                        border-top: 1px solid $white;
 
-		$self: &;
+                        ul {
+                            // MAIN MENU
 
-		.header {
+                            li {
+                                margin: 0;
 
-			&-right {
+                                a {
+                                    padding: 1rem;
+                                    color: $white;
+                                    transition: color 250ms ease-in-out;
 
-				.menu-container {
+                                    span {
+                                    }
 
-					nav {
+                                    i {
+                                        position: static;
+                                        margin: {
+                                            top: 0;
+                                            left: 0.5rem;
+                                        }
+                                    }
 
-						border-top: 1px solid $white;
+                                    &:hover {
+                                        color: $gray;
+                                    }
+                                }
 
-						ul { // MAIN MENU
+                                > ul {
+                                    // SUB-MENU
 
-							li {
+                                    @include box-shadow-strong;
+                                    border-radius: 5px;
+                                    background: $white;
 
-								margin: 0;
+                                    li {
+                                        a {
+                                            color: $primary;
 
-								a {
+                                            span {
+                                            }
 
-									padding: 1rem;
-									color: $white;
-									transition: color 250ms ease-in-out;
+                                            i {
+                                            }
 
-									span {}
-
-									i {
-										position: static;
-										margin: {
-											top: 0;
-											left: 0.5rem;
-										}
-									}
-
-									&:hover {
-										color: $gray;
-									}
-
-								}
-
-								> ul { // SUB-MENU
-
-									@include box-shadow-strong;
-									overflow: hidden;
-									border-radius: 5px;
-									background: $white;
-
-									li {
-
-										a {
-
-											color: $primary;
-
-											span {}
-
-											i {}
-
-											&:hover {
-												color: $white;
-											}
-
-										}
-
-									}
-
-								}
-
-							}
-
-						}
-
-					}
-
-				}
-
-			}
-
-
-		}
-		
-	}
-
+                                            &:hover {
+                                                color: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
-
 
 // MODIFIERS
 body.scrolling {
+    #header {
+        $self: &;
 
-	#header {
+        .header {
+            &-right {
+                .menu-container {
+                    nav {
+                        border-top: none;
 
-		$self: &;
+                        ul {
+                            // MAIN MENU
 
-		.header {
+                            li {
+                                margin: 0;
 
-			&-right {
+                                a {
+                                    padding: 1rem;
+                                    color: $primary;
+                                    transition: color 250ms ease-in-out;
 
-				.menu-container {
+                                    span {
+                                    }
 
-					nav {
+                                    i {
+                                    }
 
-						border-top: none;
+                                    &:hover {
+                                        //color: $gray;
+                                    }
+                                }
 
-						ul { // MAIN MENU
+                                > ul {
+                                    // SUB-MENU
 
-							li {
+                                    background: $charcoal;
 
-								margin: 0;
+                                    li {
+                                        a {
+                                            color: $white;
 
-								a {
+                                            span {
+                                            }
 
-									padding: 1rem;
-									color: $primary;
-									transition: color 250ms ease-in-out;
+                                            i {
+                                            }
 
-									span {}
-
-									i {}
-
-									&:hover {
-										//color: $gray;
-									}
-
-								}
-
-								> ul { // SUB-MENU
-
-									background: $charcoal;
-
-									li {
-
-										a {
-
-											color: $white;
-
-											span {}
-
-											i {}
-
-											&:hover {
-												color: $white;
-											}
-
-										}
-
-									}
-
-								}
-
-							}
-
-						}
-
-					}
-
-				}
-
-			}
-
-
-		}
-		
-	}
-
+                                            &:hover {
+                                                color: $white;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

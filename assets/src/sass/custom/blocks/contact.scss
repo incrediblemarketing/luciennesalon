@@ -3,77 +3,70 @@
 /* -------------------------------------------------- */
 
 .contact {
+    @include gutter;
+    padding-top: 4rem !important;
 
-	@include gutter;
-	padding-top: 4rem !important;
+    h1 {
+    }
 
-	h1 {
+    &-info-address {
+        .cell {
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+                padding-bottom: 5rem;
+                border-bottom: 1px solid $gray;
+            }
 
-	}
+            .business-title {
+                margin-bottom: 0 !important;
+                color: $primary;
+            }
 
-	&-info-address {
+            a {
+                display: block;
+            }
 
-		.cell {
+            .business-phone,
+            .business-location {
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: -1.25em;
+                    color: $primary;
+                }
+                display: block;
+                position: relative;
+                margin-bottom: 2rem;
+                text-transform: none;
+            }
 
-			&:not(:last-child) {
-				margin-bottom: 2rem;
-				padding-bottom: 5rem;
-				border-bottom: 1px solid $gray;
-			}
+            .business-phone {
+                margin-bottom: 0;
 
-			.business-title {
-				margin-bottom: 0 !important;
-				color: $primary;
-			}
+                &::before {
+                    @include icon($type: "solid", $icon: "f3cd");
+                }
+            }
 
-			a {
-				display: block;
-			}
+            .business-location {
+                &::before {
+                    @include icon($type: "solid", $icon: "f3c5");
+                }
+            }
 
-			.business-phone,
-			.business-location {
-				&::before {
-					content: '';
-					position: absolute;
-					top: 0;
-					left: -1.25em;
-					color: $primary;
-				}
-				display: block;
-				position: relative;
-				margin-bottom: 2rem;
-				text-transform: none;
-			}
+            .business-map {
+                img {
+                    border-radius: 5px;
+                    border: 1px solid $gray;
+                }
+            }
+        }
+    }
 
-			.business-phone {
-
-				margin-bottom: 0;
-
-				&::before {
-					@include icon($type: 'solid', $icon: 'f3cd');
-				}
-
-			}
-
-			.business-location {
-
-				&::before {
-					@include icon($type: 'solid', $icon: 'f3c5');
-				}
-
-			}
-
-			.business-map {
-
-				img {
-					border-radius: 5px;
-					border: 1px solid $gray;
-				}
-
-			}
-
-		}
-
-	}
-
+    h2 {
+        @include mq($until: lg) {
+            text-align: center;
+        }
+    }
 }

@@ -3,46 +3,30 @@
 /* -------------------------------------------------- */
 
 .instagram-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 2rem !important;
+    max-width: 100% !important;
+    background: $primary;
 
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0 auto;
-	padding: 2rem !important;
-	max-width: 100% !important;
-	background: $primary;
+    .cell {
+        h2 {
+            position: relative;
 
-	.cell {
+            &::before {
+                @include icon($type: "brand", $icon: "f16d");
+                position: absolute;
+                top: 0;
+                left: 0;
+                //color: $accent;
+                //font-size: 1.25em;
 
-		h2 {
-
-			position: relative;
-
-			&::before {
-
-				@include icon($type: 'brand', $icon: 'f16d');
-				position: absolute;
-				top: 0;
-				left: 0;
-				//color: $accent;
-				//font-size: 1.25em;
-
-				@include break($min: 0, $max: 320px, $orientation: 'portrait') {
-					display: none;
-				}
-
-			}
-
-		}
-
-	}
-
-}
-
-.block__instagram {
-
-	.col-xl-8 {
-		display: none;
-	}
-
+                @include break($min: 0, $max: 320px, $orientation: "portrait") {
+                    display: none;
+                }
+            }
+        }
+    }
 }

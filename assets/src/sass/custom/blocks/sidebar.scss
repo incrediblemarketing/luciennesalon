@@ -3,168 +3,150 @@
 /* -------------------------------------------------- */
 
 #sidebar {
+    .sidebar-item {
+        @include gutter;
+        border-radius: 5px !important;
+        background-image: none !important;
 
-	.sidebar-item {
+        &:first-child {
+            @include mq($until: md) {
+                display: none !important;
+            }
 
-		@include gutter;
-		border-radius: 5px !important;
-		background-image: none !important;
+            h5 {
+                color: $white;
+            }
 
-		&:first-child {
+            background-color: $primary;
+        }
 
-			h5 {
-				color: $white;
-			}
+        &:last-child {
+            h5 {
+                color: $primary;
+            }
 
-			background-color: $primary;
+            border-color: $gray;
+            background-color: transparent;
+        }
 
-		}
+        h5 {
+            margin: 2rem auto;
+            padding: 0;
+            text-align: left;
+            text-transform: uppercase !important;
+        }
 
-		&:last-child {
+        .gform_wrapper {
+            form {
+                padding-top: 2rem;
 
-			h5 {
-				color: $primary;
-			}
+                @include mq(lg) {
+                    padding-top: 0;
+                }
 
-			border-color: $gray;
-			background-color: transparent;
+                input {
+                    margin-bottom: 2rem;
+                    padding: 8px 0;
+                    font-size: 14px;
+                    border: none;
+                    border-radius: 0;
+                    background: transparent;
+                }
 
-		}
+                input,
+                textarea {
+                    padding: 0;
+                    color: $white !important;
+                    font-size: 1rem;
+                    line-height: 35px;
+                    border-bottom: 1px solid $white;
+                }
 
-		h5 {
-			margin: 2rem auto;
-			padding: 0;
-			text-align: left;
-			text-transform: uppercase !important;
-		}
+                textarea {
+                    margin-top: 2rem;
+                    padding: 1rem;
+                    height: 150px;
+                    color: $charcoal;
+                    background: $white;
+                }
 
-		.gform_wrapper {
+                input::placeholder {
+                    color: $white;
+                }
 
-			form {
+                textarea::placeholder {
+                    color: $gray;
+                }
 
-				padding-top: 2rem;
+                .top_label #field_1_4 .gfield_label {
+                    display: block;
+                    margin-bottom: 8px;
+                    //font-size: 14px;
+                    //font-weight: 400;
+                }
 
-				@include mq(lg) {
-					padding-top: 0;
-				}
+                input[type="submit"] {
+                    display: grid;
+                    align-items: center;
+                    justify-items: center;
+                    margin: {
+                        left: 0;
+                        right: auto;
+                    }
+                    padding: 0 35px;
+                    height: 60px;
+                    width: 100%;
+                    max-width: 250px;
+                    color: $dark-gray !important;
+                    text-align: center;
+                    text-transform: none;
+                    border-radius: 5px;
+                    border: none;
+                    background: $white !important;
+                    transition: all 250ms ease-in-out;
 
-				input {
-					margin-bottom: 2rem;
-					padding: 8px 0;
-					font-size: 14px;
-					border: none;
-					border-radius: 0;
-					background: transparent;
-				}
+                    &:hover {
+                        background: $white;
+                    }
 
-				input, textarea {
-					padding: 0;
-					color: $white !important;
-					font-size: 1rem;
-					line-height: 35px;
-					border-bottom: 1px solid $white;
-				}
+                    @include mq($until: lg) {
+                        width: 100%;
+                    }
+                }
 
-				textarea {
-					margin-top: 2rem;
-					padding: 1rem;
-					height: 150px;
-					color: $charcoal;
-					background: $white;
-				}
+                .gform_footer {
+                    @include mq(xl) {
+                        margin-top: 50px;
+                    }
+                }
+            }
+        }
 
-				input::placeholder {
-					color: $white;
-				}
+        .sidebar-menu {
+            li {
+                border-bottom: 1px dotted rgba($gray, 0.5);
 
-				textarea::placeholder {
-					color: $gray;
-				}
+                &:last-child {
+                    border: none;
+                }
 
-				.top_label #field_1_4 .gfield_label {
-					display: block;
-					margin-bottom: 8px;
-					//font-size: 14px;
-					//font-weight: 400;
-				}
+                &:hover {
+                    border-color: rgba($gray, 0);
+                }
 
-				input[type='submit'] {
+                a {
+                    //color: $white;
+                }
 
-					display: grid;
-					align-items: center;
-					justify-items: center;
-					margin: {
-						left: 0;
-						right: auto;
-					};
-					padding: 0 35px;
-					height: 60px;
-					width: 100%;
-					max-width: 250px;
-					color: $dark-gray !important;
-					text-align: center;
-					text-transform: none;
-					border-radius: 5px;
-					border: none;
-					background: $white !important;
-					transition: all 250ms ease-in-out;
+                &.current_page_item {
+                    border-bottom: none;
+                    background: $secondary;
 
-					&:hover {
-						background: $white;
-					}
-
-					@include mq($until: lg) {
-						width: 100%;
-					}
-
-				}
-
-				.gform_footer {
-
-					@include mq(xl) {
-						margin-top: 50px;
-
-					}
-				}
-
-			}
-
-		}
-
-		.sidebar-menu {
-
-			li {
-
-				border-bottom: 1px dotted rgba($gray, 0.5);
-
-				&:last-child {
-					border: none;
-				}
-
-				&:hover {
-					border-color: rgba($gray, 0);
-				}
-
-				a {
-					//color: $white;
-				}
-
-				&.current_page_item {
-
-					border-bottom: none;
-					background: $secondary;
-
-					a {
-						color: $white;
-					}
-
-				}
-
-			}
-
-
-		}
-
-	}
-
+                    a {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
 }
