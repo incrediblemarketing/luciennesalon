@@ -24,6 +24,7 @@ require_once get_template_directory() . '/includes/acf/admin-styles.php';
 require_once get_template_directory() . '/includes/post-types/galleries.php';
 require_once get_template_directory() . '/includes/post-types/procedures.php';
 require_once get_template_directory() . '/includes/post-types/testimonials.php';
+require_once get_template_directory() . '/includes/post-types/team-members.php';
 
 // MENUS
 // ==================================================
@@ -54,6 +55,7 @@ require_once get_template_directory() . '/includes/shortcodes/reusable_block.php
 require_once get_template_directory() . '/includes/shortcodes/sidebar.php';
 require_once get_template_directory() . '/includes/shortcodes/child_pages.php';
 require_once get_template_directory() . '/includes/shortcodes/testimonials.php';
+require_once get_template_directory() . '/includes/shortcodes/staff.php';
 
 // PLUGINS
 // ==================================================
@@ -63,6 +65,6 @@ require_once get_template_directory() . '/includes/plugins.php';
 // ==================================================
 // require_once get_template_directory() . '/includes/theme-updates/theme-update-checker.php';
 // $im_update_checker = new ThemeUpdateChecker(
-//   'incredibletheme',
-//   'https://imcustomtheme.wpengine.com/incredible.json'
+// 'incredibletheme',
+// 'https://imcustomtheme.wpengine.com/incredible.json'
 // );

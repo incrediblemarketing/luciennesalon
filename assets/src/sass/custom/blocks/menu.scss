@@ -14,12 +14,18 @@ body {
 
                         ul {
                             // MAIN MENU
-
+                            &.ubermenu-nav {
+                                > li.ubermenu-item-level-0 {
+                                    > a {
+                                        padding: 1rem 2rem;
+                                    }
+                                }
+                            }
                             li {
                                 margin: 0;
 
                                 a {
-                                    padding: 1rem;
+                                    padding: 10px 15px;
                                     color: $white;
                                     transition: color 250ms ease-in-out;
 
@@ -89,7 +95,7 @@ body.scrolling {
                                 margin: 0;
 
                                 a {
-                                    padding: 1rem;
+                                    padding: 10px 15px;
                                     color: $primary;
                                     transition: color 250ms ease-in-out;
 
@@ -107,11 +113,11 @@ body.scrolling {
                                 > ul {
                                     // SUB-MENU
 
-                                    background: $charcoal;
+                                    background: $white;
 
                                     li {
                                         a {
-                                            color: $white;
+                                            color: $primary;
 
                                             span {
                                             }
@@ -121,6 +127,7 @@ body.scrolling {
 
                                             &:hover {
                                                 color: $white;
+                                                background: $primary;
                                             }
                                         }
                                     }

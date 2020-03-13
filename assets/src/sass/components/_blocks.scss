@@ -400,3 +400,28 @@ section.faqs {
         margin: 0 auto;
     }
 }
+
+.block__team-member {
+    clear: both;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 35px;
+    padding-top: 35px;
+    border-bottom: 1px solid rgba($primary, 0.4);
+
+    h3 {
+        margin-top: 0 !important;
+    }
+
+    img {
+        float: right;
+        border-radius: 100em;
+        margin: 0 0 35px 35px;
+        max-width: 19vw;
+
+        @include mq($until: md) {
+            margin: 0 auto 35px;
+            max-width: 100%;
+        }
+    }
+}

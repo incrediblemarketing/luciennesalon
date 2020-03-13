@@ -167,7 +167,7 @@ if ( $showSidebar == 1 ) {
 				'title_li' => '',
 				'child_of' => 0,
 				'depth'    => 1,
-				'exclude'  => '407,1054',
+				'exclude'  => '407,1054,3,1458',
 			),
 		);
 		echo '</ul>';
