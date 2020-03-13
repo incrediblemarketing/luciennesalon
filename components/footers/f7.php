@@ -78,7 +78,7 @@
 				<?php get_template_part( 'components/call' ); ?>
 			</div>
 			<div class="copyright">
-				<p>&copy; <?php echo date( 'Y' ); ?> <?php echo $copyright ?: get_bloginfo(); ?> All rights reserved. | <a href="/privacy-policy/">Privacy Policy</a> and <a href="/terms-of-use/">Terms of Use</a> </a>| Digital Marketing By <a href="https://www.incrediblemarketing.com/" target="_blank"><?php get_template_part( 'components/svg/incredible-marketing' ); ?>Incredible Marketing</a></p>
+				<p>&copy; <?php echo date( 'Y' ); ?> <?php echo $copyright ?: get_bloginfo(); ?> All rights reserved. | <a href="/privacy-policy/">Privacy Policy</a> & <a href="/terms-of-use/">Terms of Use</a> </a>| Digital Marketing By <a href="https://www.incrediblemarketing.com/" target="_blank"><?php get_template_part( 'components/svg/incredible-marketing' ); ?>Incredible Marketing</a></p>
 			</div>
 		</div>
 	</div>
