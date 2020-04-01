@@ -111,7 +111,7 @@
                 font-size: 14px;
             }
 
-            input[type='submit'] {
+            input[type="submit"] {
                 background: $secondary;
                 color: $white;
                 padding: 0 35px;
@@ -283,6 +283,7 @@
         text-align: center !important;
         font-weight: normal !important;
         justify-content: center;
+        text-transform: initial;
     }
 }
 
