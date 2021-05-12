@@ -47,7 +47,7 @@
         "jshint": "^2.10.1",
         "jshint-stylish": "^2.2.1",
         "natives": "^1.1.6",
-        "postcss": "^7.0.14",
+        "postcss": "^8.2.10",
         "postcss-combine-duplicated-selectors": "^8.1.0",
         "purgecss-with-wordpress": "^1.1.0",
         "run-sequence": "^2.2.1",
